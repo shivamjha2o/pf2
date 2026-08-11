@@ -1,4 +1,6 @@
 import React from 'react';
+import ScrollStack, { ScrollStackItem } from '@/components/ScrollStack';
+import CurvedLoop from '@/components/CurvedLoop';
 
 const projectsData = [
   {
@@ -29,32 +31,67 @@ const projectsData = [
 
 const Projects = () => {
   return (
-    <section id="projects" className="py-12 sm:py-24 bg-transparent text-black">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-8 sm:mb-16">
-          <h2 className="text-2xl sm:text-4xl font-black mb-4 uppercase tracking-tight bg-white text-black inline-block px-5 py-2 border-3 sm:border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">Technical Projects</h2>
+    <section id="projects" className="py-14 sm:py-24 bg-transparent text-black relative">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        
+        {/* CurvedLoop Marquee behind header */}
+        <div className="relative text-center mb-10 sm:mb-16 py-4 flex flex-col items-center justify-center">
+          <div className="absolute inset-0 flex items-center justify-center pointer-events-auto opacity-20 z-0 scale-110 sm:scale-125 -translate-y-2">
+            <CurvedLoop
+              marqueeText="TECHNICAL PROJECTS ✦ FEATURED WORK ✦ INNOVATION ✦"
+              speed={2}
+              curveAmount={120}
+              interactive={true}
+              className="fill-black font-black text-4xl sm:text-6xl tracking-wider"
+            />
+          </div>
+          <h2 className="relative z-10 text-2xl sm:text-4xl font-black uppercase tracking-tight bg-white text-black inline-block px-6 py-2.5 border-3 sm:border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+            Technical Projects
+          </h2>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-          {projectsData.map((project) => (
-            <div key={project.id} className="bg-white rounded-xl overflow-hidden border-2 sm:border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] sm:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-1 sm:hover:-translate-y-2 transition-all flex flex-col">
-              <div className="p-4 sm:p-5 bg-gray-50 border-b-2 sm:border-b-4 border-black flex justify-between items-center">
-                <span className="text-xs sm:text-sm font-black uppercase tracking-wider text-black bg-white px-2.5 py-1 border border-black shadow-[1.5px_1.5px_0px_0px_rgba(0,0,0,1)]">{project.category}</span>
-                <span className="font-mono text-xs font-bold bg-[#B8FF65] text-black border border-black px-2.5 py-0.5 rounded-full shadow-[1.5px_1.5px_0px_0px_rgba(0,0,0,1)]">{project.year}</span>
-              </div>
-              <div className="p-4 sm:p-6 flex-1 flex flex-col">
-                <h3 className="text-lg sm:text-2xl font-bold mb-2">{project.title}</h3>
-                <p className="text-gray-700 text-xs sm:text-sm mb-4 font-medium leading-relaxed flex-1" dangerouslySetInnerHTML={{ __html: project.desc }}></p>
-                <div className="flex flex-wrap gap-1.5 sm:gap-2 mt-auto">
-                  {project.tags.map(tag => (
-                    <span key={tag} className="bg-[#B8FF65] text-black font-bold text-[10px] sm:text-xs px-2.5 py-1 border border-black rounded-full uppercase tracking-wider shadow-[1.5px_1.5px_0px_0px_rgba(0,0,0,1)] cursor-default">
-                      {tag}
+
+        {/* ScrollStack Cards Container */}
+        <div className="w-full">
+          <ScrollStack
+            useWindowScroll={true}
+            itemDistance={50}
+            itemScale={0.04}
+            itemStackDistance={25}
+            stackPosition="15%"
+            scaleEndPosition="5%"
+            baseScale={0.9}
+            blurAmount={0}
+          >
+            {projectsData.map((project) => (
+              <ScrollStackItem key={project.id} itemClassName="!my-6">
+                <div className="flex flex-col h-full justify-between">
+                  <div className="flex justify-between items-center gap-2 mb-4 pb-3 border-b-2 border-black">
+                    <span className="text-xs sm:text-sm font-black uppercase tracking-wider text-black bg-[#B8FF65] px-3 py-1 border border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+                      {project.category}
                     </span>
-                  ))}
+                    <span className="font-mono text-xs sm:text-sm font-bold bg-black text-white px-3 py-1 rounded-full shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+                      {project.year}
+                    </span>
+                  </div>
+
+                  <div className="my-2">
+                    <h3 className="text-xl sm:text-3xl font-black mb-3 tracking-tight">{project.title}</h3>
+                    <p className="text-gray-800 text-sm sm:text-base font-medium leading-relaxed" dangerouslySetInnerHTML={{ __html: project.desc }}></p>
+                  </div>
+
+                  <div className="flex flex-wrap gap-2 mt-6 pt-4 border-t border-gray-200">
+                    {project.tags.map(tag => (
+                      <span key={tag} className="bg-gray-100 hover:bg-[#B8FF65] text-black font-bold text-xs px-3 py-1 border border-black rounded-full uppercase tracking-wider transition-colors shadow-[1.5px_1.5px_0px_0px_rgba(0,0,0,1)] cursor-default">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
                 </div>
-              </div>
-            </div>
-          ))}
+              </ScrollStackItem>
+            ))}
+          </ScrollStack>
         </div>
+
       </div>
     </section>
   );
