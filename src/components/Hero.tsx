@@ -3,7 +3,6 @@
 import React from 'react';
 import RotatingText from '@/components/RotatingText';
 import DotGrid from '@/components/DotGrid';
-import CircularText from '@/components/CircularText';
 import InteractiveMarquee from '@/components/InteractiveMarquee';
 import StrokeText from '@/components/StrokeText';
 

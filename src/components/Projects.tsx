@@ -1,6 +1,5 @@
 import React from 'react';
 import ScrollStack, { ScrollStackItem } from '@/components/ScrollStack';
-import CurvedLoop from '@/components/CurvedLoop';
 
 const projectsData = [
   {
@@ -31,21 +30,12 @@ const projectsData = [
 
 const Projects = () => {
   return (
-    <section id="projects" className="py-14 sm:py-24 bg-transparent text-black relative">
+    <section id="projects" className="pt-16 pb-36 sm:pt-24 sm:pb-52 bg-transparent text-black relative">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        {/* CurvedLoop Marquee behind header */}
-        <div className="relative text-center mb-10 sm:mb-16 py-4 flex flex-col items-center justify-center">
-          <div className="absolute inset-0 flex items-center justify-center pointer-events-auto opacity-20 z-0 scale-110 sm:scale-125 -translate-y-2">
-            <CurvedLoop
-              marqueeText="TECHNICAL PROJECTS ✦ FEATURED WORK ✦ INNOVATION ✦"
-              speed={2}
-              curveAmount={120}
-              interactive={true}
-              className="fill-black font-black text-4xl sm:text-6xl tracking-wider"
-            />
-          </div>
-          <h2 className="relative z-10 text-2xl sm:text-4xl font-black uppercase tracking-tight bg-white text-black inline-block px-6 py-2.5 border-3 sm:border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+        {/* Section Header */}
+        <div className="text-center mb-12 sm:mb-20">
+          <h2 className="text-2xl sm:text-4xl font-black uppercase tracking-tight bg-white text-black inline-block px-6 py-2.5 border-3 sm:border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
             Technical Projects
           </h2>
         </div>
@@ -54,11 +44,11 @@ const Projects = () => {
         <div className="w-full">
           <ScrollStack
             useWindowScroll={true}
-            itemDistance={50}
+            itemDistance={60}
             itemScale={0.04}
             itemStackDistance={25}
-            stackPosition="15%"
-            scaleEndPosition="5%"
+            stackPosition="24%"
+            scaleEndPosition="14%"
             baseScale={0.9}
             blurAmount={0}
           >

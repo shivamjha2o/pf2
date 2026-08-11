@@ -92,14 +92,15 @@ const ScrollStack: React.FC<ScrollStackProps> = ({
 
   const getElementOffset = useCallback(
     (element: HTMLElement) => {
-      if (useWindowScroll) {
-        const rect = element.getBoundingClientRect();
-        return rect.top + window.scrollY;
-      } else {
-        return element.offsetTop;
+      let top = 0;
+      let el: HTMLElement | null = element;
+      while (el && el !== document.body) {
+        top += el.offsetTop;
+        el = el.offsetParent as HTMLElement | null;
       }
+      return top;
     },
-    [useWindowScroll]
+    []
   );
 
   const updateCardTransforms = useCallback(() => {
