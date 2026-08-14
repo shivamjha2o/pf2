@@ -19,10 +19,10 @@ const Footer = () => {
           </a>
         </div>
         <div className="flex space-x-4">
-          <a href="https://github.com/shivamjha" target="_blank" rel="noopener noreferrer" className="text-black hover:bg-[#B8FF65] font-bold uppercase text-xs sm:text-sm transition-colors bg-white px-3 py-1 border border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+          <a href="https://github.com/shivamjha2o" target="_blank" rel="noopener noreferrer" className="text-black hover:bg-[#B8FF65] font-bold uppercase text-xs sm:text-sm transition-colors bg-white px-3 py-1 border border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
             GitHub
           </a>
-          <a href="https://linkedin.com/in/shivamjha" target="_blank" rel="noopener noreferrer" className="text-black hover:bg-[#B8FF65] font-bold uppercase text-xs sm:text-sm transition-colors bg-white px-3 py-1 border border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+          <a href="https://www.linkedin.com/in/shivamjha9871" target="_blank" rel="noopener noreferrer" className="text-black hover:bg-[#B8FF65] font-bold uppercase text-xs sm:text-sm transition-colors bg-white px-3 py-1 border border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
             LinkedIn
           </a>
           <a href="mailto:shivamjha9871@gmail.com" className="text-black hover:bg-[#B8FF65] font-bold uppercase text-xs sm:text-sm transition-colors bg-white px-3 py-1 border border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">

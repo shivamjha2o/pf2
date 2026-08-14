@@ -14,14 +14,14 @@ const contactLinks = [
   {
     icon: '💼',
     label: 'LinkedIn',
-    value: 'linkedin.com/in/shivamjha',
-    href: 'https://linkedin.com/in/shivamjha',
+    value: 'linkedin.com/in/shivamjha9871',
+    href: 'https://www.linkedin.com/in/shivamjha9871',
   },
   {
     icon: '💻',
     label: 'GitHub',
-    value: 'github.com/shivamjha',
-    href: 'https://github.com/shivamjha',
+    value: 'github.com/shivamjha2o',
+    href: 'https://github.com/shivamjha2o',
   },
 ];
 
