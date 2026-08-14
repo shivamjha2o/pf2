@@ -104,7 +104,7 @@ const Projects = () => {
   };
 
   return (
-    <section id="projects" className="pt-16 pb-20 sm:pt-24 sm:pb-28 bg-transparent text-black relative">
+    <section id="projects" className="pt-16 pb-28 sm:pt-24 sm:pb-36 bg-transparent text-black relative">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
@@ -145,7 +145,7 @@ const Projects = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
           transition={{ duration: 0.6, delay: 0.15, ease: "easeOut" }}
-          className="w-full"
+          className="w-full mb-6 sm:mb-10"
         >
           <ScrollStack
             useWindowScroll={true}
@@ -192,7 +192,7 @@ const Projects = () => {
                     <div className="w-full h-[1.5px] bg-black/15 mt-8 mb-6" />
 
                     {/* Bottom Tags & Case Study CTA */}
-                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-1">
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-3 sm:pb-4">
                       {/* High-Contrast Enhanced Tag Pills with Healthy Spacing */}
                       <div className="flex flex-wrap items-center gap-x-2.5 gap-y-3">
                         {project.tags.map(tag => (
