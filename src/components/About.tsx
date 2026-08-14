@@ -3,49 +3,11 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import SpotlightCard from '@/components/SpotlightCard';
-import InteractiveMarquee from '@/components/InteractiveMarquee';
-import VerticalMarquee from '@/components/VerticalMarquee';
 
 const About = () => {
   return (
-    <section id="about" className="bg-transparent text-black border-y-2 border-black relative overflow-hidden">
-      
-      {/* 1. TOP PROMINENT MARQUEE STRIP */}
-      <div className="w-full bg-black text-[#B8FF65] border-b-2 sm:border-b-3 border-black font-black uppercase text-sm sm:text-base md:text-lg py-3 sm:py-3.5 shadow-[0_2px_0px_0px_rgba(0,0,0,1)] relative z-20">
-        <InteractiveMarquee
-          text="DATA ANALYST INTERN ✦ JK PAPER LTD. ✦ PYTHON & PANDAS ✦ EDA & DATA VISUALIZATION ✦ DU ARSD '27 ✦"
-          baseSpeed={1.5}
-          hoverSpeed={0.3}
-          scrollSpeed={7}
-          className="items-center"
-        />
-      </div>
-
-      {/* 2. LEFT VERTICAL PROMINENT MARQUEE STRIP */}
-      <div className="hidden lg:flex absolute left-0 top-0 bottom-0 w-14 sm:w-16 bg-black text-[#B8FF65] border-r-3 border-black font-black uppercase text-sm sm:text-base md:text-lg tracking-widest z-10 items-center justify-center shadow-[2px_0px_0px_0px_rgba(0,0,0,1)]">
-        <VerticalMarquee
-          text="✦ B.SC. PHYSICAL SCIENCE WITH ELECTRONICS ✦ PROBLEM SOLVER ✦ STREAMLIT ✦ COLLABORATION ✦"
-          baseSpeed={1.3}
-          hoverSpeed={0.3}
-          scrollSpeed={6}
-          className="text-sm sm:text-base md:text-lg font-black"
-        />
-      </div>
-
-      {/* 3. RIGHT VERTICAL PROMINENT MARQUEE STRIP */}
-      <div className="hidden lg:flex absolute right-0 top-0 bottom-0 w-14 sm:w-16 bg-black text-white border-l-3 border-black font-black uppercase text-sm sm:text-base md:text-lg tracking-widest z-10 items-center justify-center shadow-[-2px_0px_0px_0px_rgba(0,0,0,1)]">
-        <VerticalMarquee
-          text="✦ GENAI & NO-CODE ML ✦ DELINQUENCY PREDICTOR ✦ AGENTIC AI ✦ AUTOMATION WORKFLOWS ✦"
-          reverse={true}
-          baseSpeed={1.3}
-          hoverSpeed={0.3}
-          scrollSpeed={6}
-          className="text-sm sm:text-base md:text-lg font-black"
-        />
-      </div>
-
-      {/* MAIN CONTENT INNER CONTAINER */}
-      <div className="max-w-6xl mx-auto px-4 sm:px-10 lg:px-24 py-12 sm:py-20 relative z-10">
+    <section id="about" className="py-12 sm:py-24 bg-transparent text-black border-y-2 border-black">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Heading */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -143,19 +105,6 @@ const About = () => {
           </div>
         </div>
       </div>
-
-      {/* 4. BOTTOM PROMINENT MARQUEE STRIP */}
-      <div className="w-full bg-black text-white border-t-2 sm:border-t-3 border-black font-black uppercase text-sm sm:text-base md:text-lg py-3 sm:py-3.5 shadow-[0_-2px_0px_0px_rgba(0,0,0,1)] relative z-20">
-        <InteractiveMarquee
-          text="✦ CYBERSECURITY & IAM ✦ ACCESS MATRIX ✦ MS EXCEL ADVANCED ✦ RISK SCORING ✦ 10,000+ PROFILES ANALYZED ✦"
-          reverse={true}
-          baseSpeed={1.5}
-          hoverSpeed={0.3}
-          scrollSpeed={7}
-          className="items-center"
-        />
-      </div>
-
     </section>
   );
 };
