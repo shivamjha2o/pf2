@@ -57,7 +57,7 @@ export default function AnimatedRoleBullets() {
               },
             }}
             whileHover={{ x: 6, transition: { type: 'spring', stiffness: 400, damping: 25 } }}
-            className="group relative cursor-pointer select-none p-2.5 -mx-2.5 rounded-xl transition-all duration-200 hover:bg-black/5"
+            className="group relative cursor-pointer select-none p-2 -mx-2 rounded-xl transition-all duration-200 hover:bg-black/5"
           >
             {/* Left Accent Indicator Bar on Hover */}
             <motion.div
@@ -96,22 +96,22 @@ export default function AnimatedRoleBullets() {
               </motion.span>
             </div>
 
-            {/* Value Row with Natural Typography & Word Wave Animation */}
+            {/* Value Row with Handwritten Cursive Font */}
             <div className="overflow-hidden py-0.5">
-              <p className="text-xl sm:text-2xl font-black text-black tracking-tight leading-tight flex flex-wrap gap-x-1.5">
+              <p className="font-handwritten text-2xl sm:text-3xl font-bold text-black leading-tight flex flex-wrap gap-x-2">
                 {item.value.split(' ').map((word, wordIdx) => (
                   <motion.span
                     key={wordIdx}
                     animate={
                       isHovered
                         ? {
-                            y: [-1, -5, 0],
-                            rotate: [-0.5, 1.5, 0],
+                            y: [-2, -6, 0],
+                            rotate: [-1, 2, 0],
                           }
                         : { y: 0, rotate: 0 }
                     }
                     transition={{
-                      duration: 0.3,
+                      duration: 0.35,
                       delay: wordIdx * 0.06,
                       ease: 'easeInOut',
                     }}
