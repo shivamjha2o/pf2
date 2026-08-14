@@ -1,19 +1,41 @@
 "use client";
 
-import React from 'react';
-import RotatingText from '@/components/RotatingText';
+import React, { useEffect, useState } from 'react';
 import DotGrid from '@/components/DotGrid';
 import InteractiveMarquee from '@/components/InteractiveMarquee';
 import StrokeText from '@/components/StrokeText';
+import AnimatedRoleBullets from '@/components/AnimatedRoleBullets';
+import TypewriterText from '@/components/TypewriterText';
+import ParticleStarfield from '@/components/ParticleStarfield';
 
 const Hero = () => {
+  const [fontSize, setFontSize] = useState(96);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 480) {
+        setFontSize(48);
+      } else if (window.innerWidth < 768) {
+        setFontSize(64);
+      } else if (window.innerWidth < 1024) {
+        setFontSize(80);
+      } else {
+        setFontSize(96);
+      }
+    };
+
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   return (
     <section
       id="home"
       className="min-h-screen flex flex-col justify-between text-black pt-20 pb-10 relative bg-transparent overflow-hidden select-none"
     >
-      {/* Interactive Dot Grid Background */}
-      <div className="absolute inset-0 z-0 opacity-50">
+      {/* Interactive Background Layer: Dot Grid + Particle Starfield */}
+      <div className="absolute inset-0 z-0 opacity-60">
         <DotGrid
           dotSize={3}
           gap={20}
@@ -26,10 +48,11 @@ const Hero = () => {
           resistance={750}
           returnDuration={1.5}
         />
+        <ParticleStarfield />
       </div>
 
-      {/* Crossed Marquees at Right Side */}
-      <div className="absolute top-1/2 right-0 w-[600px] h-[600px] md:w-[900px] md:h-[900px] pointer-events-none z-10 translate-x-1/4 -translate-y-1/2 opacity-90 flex justify-center items-center">
+      {/* Infinite Marquee Ticker at Right Side (Hidden on Mobile to Prevent Overlapping Title) */}
+      <div className="hidden lg:flex absolute top-1/2 right-0 w-[600px] h-[600px] md:w-[900px] md:h-[900px] pointer-events-none z-10 translate-x-1/4 -translate-y-1/2 opacity-90 justify-center items-center">
         {/* Strip 1: Black BG, White Text */}
         <div className="absolute top-1/2 left-1/2 w-[200%] -translate-x-1/2 -translate-y-1/2 -rotate-45 bg-black text-white border-y-2 sm:border-y-4 border-black font-black uppercase text-lg md:text-2xl py-2 md:py-3.5 flex shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] pointer-events-auto">
           <InteractiveMarquee
@@ -53,6 +76,7 @@ const Hero = () => {
           />
         </div>
       </div>
+
       {/* Absolute Viewport-level Left Sidebar */}
       <div className="hidden lg:flex flex-col gap-10 absolute left-4 sm:left-6 md:left-8 top-32 xl:top-40 z-20 text-left max-w-[260px]">
         {/* Paper Tape Note */}
@@ -62,35 +86,21 @@ const Hero = () => {
           <p className="text-xs sm:text-sm font-semibold text-gray-600 mt-0.5">New Delhi, India</p>
         </div>
 
-        {/* Journey Bullets */}
-        <div className="flex flex-col gap-6">
-          <div>
-            <p className="text-xs font-bold uppercase text-gray-500 tracking-wider mb-1">Current Role</p>
-            <p className="font-handwritten text-3xl font-bold text-black leading-tight">Data Analyst Intern</p>
-          </div>
-          <div>
-            <p className="text-xs font-bold uppercase text-gray-500 tracking-wider mb-1">At Company</p>
-            <p className="font-handwritten text-3xl font-bold text-black leading-tight">JK Paper Ltd.</p>
-          </div>
-          <div>
-            <p className="text-xs font-bold uppercase text-gray-500 tracking-wider mb-1">Specialization</p>
-            <p className="font-handwritten text-3xl font-bold text-black leading-tight">GenAI & Analytics</p>
-          </div>
-        </div>
+        {/* Journey Bullets with Text Motion */}
+        <AnimatedRoleBullets />
       </div>
 
       {/* Main Content Container */}
       <div className="max-w-7xl mx-auto px-4 w-full flex-1 flex flex-col justify-center items-center relative z-10">
-
         {/* Mobile-only Paper Tape Note */}
         <div className="lg:hidden mb-4 self-start">
           <div className="bg-white border-2 border-black px-3 py-2 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] relative inline-block -rotate-2">
-            <p className="font-extrabold text-xs tracking-tight text-black">DU ARSD '26 • New Delhi</p>
+            <p className="font-extrabold text-xs tracking-tight text-black">DU ARSD '27 • New Delhi</p>
           </div>
         </div>
 
         {/* ANIMATED STROKE NAME DISPLAY */}
-        <div className="w-full max-w-4xl mb-4 sm:mb-6 z-20 px-2 flex justify-center items-center">
+        <div className="w-full max-w-4xl mb-4 sm:mb-6 z-20 px-2 flex justify-center items-center overflow-hidden">
           <StrokeText
             text="Shivam Kumar Jha"
             strokeColor="#000000"
@@ -100,45 +110,46 @@ const Hero = () => {
             fillDelay={0.2}
             stagger={0.05}
             ease="power2.out"
-            trigger="scroll"
+            trigger="loop"
             fillMode="wipe"
-            fontSize={96}
+            fontSize={fontSize}
             fontWeight={900}
             letterSpacing={-1}
             className="font-extrabold tracking-tight text-center"
           />
         </div>
 
-        {/* "I'M A" + ROTATING ROLE PILL */}
-        <div className="my-2 flex flex-row justify-center items-center gap-3 sm:gap-4 relative z-20 w-full px-2">
+        {/* "I'M A" + TYPEWRITER CYCLING ROLE PILL */}
+        <div className="my-2 flex flex-wrap justify-center items-center gap-3 sm:gap-4 relative z-20 w-full px-2">
           <span className="text-xl sm:text-3xl md:text-4xl font-black uppercase tracking-tight text-black whitespace-nowrap">
             I'm a
           </span>
-          <RotatingText
+          <TypewriterText
             texts={['DATA ANALYST INTERN', 'GENAI BUILDER', 'ELECTRONICS STUDENT', 'PROBLEM SOLVER']}
-            mainClassName="px-4 py-2 sm:px-8 sm:py-3.5 bg-[#B8FF65] text-black overflow-hidden border-2 sm:border-3 border-black rounded-xl shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] sm:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] text-lg sm:text-2xl md:text-3xl font-black uppercase tracking-tight justify-center"
-            staggerFrom="last"
-            initial={{ y: "100%", opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            exit={{ y: "-120%", opacity: 0 }}
-            staggerDuration={0.025}
-            splitLevelClassName="overflow-hidden pb-0.5"
-            transition={{ type: "spring", damping: 25, stiffness: 300 }}
-            rotationInterval={2600}
-            splitBy="characters"
-            auto
-            loop
+            typingSpeed={75}
+            deletingSpeed={45}
+            pauseDuration={1800}
           />
         </div>
 
+        {/* Mobile-only Animated Role Bullets Display */}
+        <div className="lg:hidden mt-6 w-full max-w-md bg-white/90 border-2 border-black p-4 rounded-xl shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+          <AnimatedRoleBullets />
+        </div>
       </div>
 
       {/* Hero Bottom Buttons */}
       <div className="flex justify-center gap-4 relative z-20 px-4 mt-6">
-        <a href="#projects" className="bg-black hover:bg-gray-800 text-white px-6 py-3 text-xs sm:text-sm rounded-full font-bold transition-all border-2 border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] sm:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] whitespace-nowrap">
+        <a
+          href="#projects"
+          className="bg-black hover:bg-gray-800 text-white px-6 py-3 text-xs sm:text-sm rounded-full font-bold transition-all border-2 border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] sm:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] whitespace-nowrap"
+        >
           View My Projects
         </a>
-        <a href="#about" className="bg-white hover:bg-gray-100 text-black px-6 py-3 text-xs sm:text-sm rounded-full font-bold transition-all border-2 border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] sm:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px] whitespace-nowrap">
+        <a
+          href="#about"
+          className="bg-white hover:bg-gray-100 text-black px-6 py-3 text-xs sm:text-sm rounded-full font-bold transition-all border-2 border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] sm:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px] whitespace-nowrap"
+        >
           About Me
         </a>
       </div>

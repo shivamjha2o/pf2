@@ -1,4 +1,8 @@
+"use client";
+
 import React from 'react';
+import { motion } from 'motion/react';
+import SpotlightCard from '@/components/SpotlightCard';
 
 const experienceData = [
   {
@@ -41,27 +45,51 @@ const Experience = () => {
   return (
     <section id="experience" className="py-16 sm:py-24 bg-transparent text-black border-y-2 border-black">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-10 sm:mb-16">
-          <h2 className="text-2xl sm:text-4xl font-black mb-4 uppercase tracking-tight bg-white text-black inline-block px-5 py-2 border-3 sm:border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">Experience</h2>
-        </div>
+        {/* Section Heading */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="text-center mb-10 sm:mb-16"
+        >
+          <h2 className="text-2xl sm:text-4xl font-black mb-4 uppercase tracking-tight bg-white text-black inline-block px-5 py-2 border-3 sm:border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+            Experience
+          </h2>
+        </motion.div>
+
         <div className="space-y-6 sm:space-y-8">
-          {experienceData.map((exp) => (
-            <div key={exp.id} className="relative">
-              <div className="bg-white p-5 sm:p-8 rounded-xl border-3 sm:border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] sm:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
-                <div className="sm:flex items-start justify-between mb-4 border-b border-gray-200 pb-4">
-                  <div>
-                    <h3 className="text-xl sm:text-2xl font-bold text-black">{exp.role}</h3>
-                    <h4 className="text-base sm:text-lg text-gray-800 font-bold mt-0.5">{exp.company} • <span className="text-gray-600 font-normal">{exp.location}</span></h4>
+          {experienceData.map((exp, index) => (
+            <motion.div
+              key={exp.id}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.6, delay: index * 0.15, ease: "easeOut" }}
+              className="relative"
+            >
+              <SpotlightCard
+                enableTilt={true}
+                maxTilt={6}
+                spotlightColor="rgba(184, 255, 101, 0.3)"
+                className="rounded-xl"
+              >
+                <div className="bg-white p-5 sm:p-8 rounded-xl border-3 sm:border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] sm:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+                  <div className="sm:flex items-start justify-between mb-4 border-b border-gray-200 pb-4">
+                    <div>
+                      <h3 className="text-xl sm:text-2xl font-bold text-black">{exp.role}</h3>
+                      <h4 className="text-base sm:text-lg text-gray-800 font-bold mt-0.5">{exp.company} • <span className="text-gray-600 font-normal">{exp.location}</span></h4>
+                    </div>
+                    <span className="mt-2 sm:mt-0 font-mono text-xs sm:text-sm bg-[#B8FF65] text-black border-2 border-black inline-block px-3.5 py-1 rounded-full font-bold shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">{exp.period}</span>
                   </div>
-                  <span className="mt-2 sm:mt-0 font-mono text-xs sm:text-sm bg-[#B8FF65] text-black border-2 border-black inline-block px-3.5 py-1 rounded-full font-bold shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">{exp.period}</span>
+                  <ul className="space-y-2 list-disc list-inside text-xs sm:text-sm font-medium text-gray-800">
+                    {exp.bullets.map((b, i) => (
+                      <li key={i} className="leading-relaxed" dangerouslySetInnerHTML={{ __html: b }}></li>
+                    ))}
+                  </ul>
                 </div>
-                <ul className="space-y-2 list-disc list-inside text-xs sm:text-sm font-medium text-gray-800">
-                  {exp.bullets.map((b, i) => (
-                    <li key={i} className="leading-relaxed" dangerouslySetInnerHTML={{ __html: b }}></li>
-                  ))}
-                </ul>
-              </div>
-            </div>
+              </SpotlightCard>
+            </motion.div>
           ))}
         </div>
       </div>

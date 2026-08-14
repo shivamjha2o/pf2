@@ -6,6 +6,7 @@ import Skills from '@/components/Skills';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
 import PillNav from '@/components/PillNav';
+import CustomCursor from '@/components/CustomCursor';
 
 export default function Home() {
   const navItems = [
@@ -19,7 +20,7 @@ export default function Home() {
 
   return (
     <main className="min-h-screen text-black relative bg-[#f8f9fa]">
-
+      <CustomCursor />
 
       <div className="fixed top-4 left-0 w-full z-[1000] flex justify-center pointer-events-none">
         <div className="pointer-events-auto w-full px-4 md:w-auto md:px-0">
