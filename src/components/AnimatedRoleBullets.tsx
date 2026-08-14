@@ -36,7 +36,6 @@ export default function AnimatedRoleBullets() {
     >
       {items.map((item, idx) => {
         const isHovered = hoveredIndex === idx;
-        const characters = Array.from(item.value);
 
         return (
           <motion.div
@@ -97,37 +96,35 @@ export default function AnimatedRoleBullets() {
               </motion.span>
             </div>
 
-            {/* Value Row with Staggered Character Wave Animation */}
+            {/* Value Row with Natural Typography & Word/Character Wave */}
             <div className="overflow-hidden py-0.5">
-              <p className="font-handwritten text-2xl sm:text-3xl font-bold text-black leading-tight flex flex-wrap">
-                {characters.map((char, charIdx) => {
-                  if (char === ' ') {
-                    return <span key={charIdx} className="inline-block">&nbsp;</span>;
-                  }
-                  return (
-                    <motion.span
-                      key={charIdx}
-                      initial={{ y: 0 }}
-                      animate={
-                        isHovered
-                          ? {
-                              y: [-2, -8, 0],
-                              rotate: [-2, 4, 0],
-                              color: ['#000000', '#111111', '#000000'],
-                            }
-                          : { y: 0, rotate: 0 }
-                      }
-                      transition={{
-                        duration: 0.35,
-                        delay: charIdx * 0.025,
-                        ease: 'easeInOut',
-                      }}
-                      className="inline-block origin-bottom"
-                    >
-                      {char}
-                    </motion.span>
-                  );
-                })}
+              <p className="font-handwritten text-2xl sm:text-3xl font-bold text-black leading-tight tracking-normal inline-flex flex-wrap gap-x-1.5">
+                {item.value.split(' ').map((word, wordIdx) => (
+                  <span key={wordIdx} className="inline-flex whitespace-nowrap">
+                    {Array.from(word).map((char, charIdx) => (
+                      <motion.span
+                        key={charIdx}
+                        initial={{ y: 0 }}
+                        animate={
+                          isHovered
+                            ? {
+                                y: [-1, -6, 0],
+                                rotate: [-1, 3, 0],
+                              }
+                            : { y: 0, rotate: 0 }
+                        }
+                        transition={{
+                          duration: 0.35,
+                          delay: (wordIdx * 4 + charIdx) * 0.02,
+                          ease: 'easeInOut',
+                        }}
+                        className="inline-block"
+                      >
+                        {char}
+                      </motion.span>
+                    ))}
+                  </span>
+                ))}
               </p>
             </div>
           </motion.div>
