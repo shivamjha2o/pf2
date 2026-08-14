@@ -165,19 +165,32 @@ const Projects = () => {
                   spotlightColor="rgba(184, 255, 101, 0.35)"
                   className="w-full h-full"
                 >
-                  <div className="flex flex-col h-full justify-between">
-                    {/* Top Meta Bar */}
+                  {/* Uniform Height Flex Layout */}
+                  <div className="flex flex-col justify-between h-full min-h-[360px] sm:min-h-[330px]">
+                    {/* Top Meta Bar with Category, Year & Direct GitHub Repo Badge */}
                     <div className="flex justify-between items-center gap-2 mb-4 pb-3 border-b-2 border-black">
                       <span className="text-xs sm:text-sm font-black uppercase tracking-wider text-black bg-[#B8FF65] px-3.5 py-1.5 border-2 border-black rounded-lg shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
                         {project.category}
                       </span>
-                      <span className="font-mono text-xs sm:text-sm font-bold bg-black text-white px-3 py-1 rounded-full shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-                        {project.year}
-                      </span>
+                      <div className="flex items-center gap-2">
+                        <a
+                          href={project.githubUrl || "https://github.com/shivamjha2o"}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1 bg-white hover:bg-[#B8FF65] text-black font-extrabold text-[11px] sm:text-xs px-2.5 py-1 border-2 border-black rounded-md shadow-[1.5px_1.5px_0px_0px_rgba(0,0,0,1)] transition-colors group/link"
+                          title="Open GitHub Repository"
+                        >
+                          <span>Code</span>
+                          <span className="text-[10px] group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform">↗</span>
+                        </a>
+                        <span className="font-mono text-xs sm:text-sm font-bold bg-black text-white px-3 py-1 rounded-full shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+                          {project.year}
+                        </span>
+                      </div>
                     </div>
 
-                    {/* Title & Metric */}
-                    <div className="my-2">
+                    {/* Title & Metric & Description with Vertical Balance */}
+                    <div className="my-auto py-2">
                       <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2 mb-2">
                         <h3 className="text-xl sm:text-3xl font-black tracking-tight">{project.title}</h3>
                         <div className="bg-black text-[#B8FF65] border-2 border-black px-3 py-1 rounded-lg shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] self-start sm:self-auto shrink-0 flex items-center gap-1.5">
@@ -189,11 +202,11 @@ const Projects = () => {
                     </div>
 
                     {/* Divider Line with Generous Spacing */}
-                    <div className="w-full h-[1.5px] bg-black/15 mt-8 mb-6" />
+                    <div className="w-full h-[1.5px] bg-black/15 mt-6 mb-5" />
 
                     {/* Bottom Tags & Case Study CTA */}
-                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-3 sm:pb-4">
-                      {/* High-Contrast Enhanced Tag Pills with Healthy Spacing */}
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-2 sm:pb-3">
+                      {/* High-Contrast Enhanced Tag Pills */}
                       <div className="flex flex-wrap items-center gap-x-2.5 gap-y-3">
                         {project.tags.map(tag => (
                           <span
@@ -205,7 +218,7 @@ const Projects = () => {
                         ))}
                       </div>
 
-                      {/* View Details Button */}
+                      {/* View Details Button with External Link Indicator */}
                       <button
                         onClick={() => handleOpenDetails(project)}
                         className="bg-black hover:bg-[#B8FF65] text-white hover:text-black font-black text-xs sm:text-sm uppercase tracking-wider px-5 py-2.5 rounded-xl border-2 border-black transition-colors shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] active:translate-x-0.5 active:translate-y-0.5 self-start sm:self-auto shrink-0 flex items-center gap-1.5 group cursor-pointer"
