@@ -21,29 +21,31 @@ const About = () => {
         />
       </div>
 
-      {/* 2. LEFT VERTICAL PROMINENT MARQUEE STRIP (Desktop) */}
-      <div className="hidden xl:flex absolute left-0 top-0 bottom-0 w-12 bg-black text-[#B8FF65] border-r-2 sm:border-r-3 border-black font-black uppercase text-xs sm:text-sm tracking-widest z-10 items-center justify-center">
+      {/* 2. LEFT VERTICAL PROMINENT MARQUEE STRIP */}
+      <div className="hidden lg:flex absolute left-0 top-0 bottom-0 w-14 sm:w-16 bg-black text-[#B8FF65] border-r-3 border-black font-black uppercase text-sm sm:text-base md:text-lg tracking-widest z-10 items-center justify-center shadow-[2px_0px_0px_0px_rgba(0,0,0,1)]">
         <VerticalMarquee
           text="✦ B.SC. PHYSICAL SCIENCE WITH ELECTRONICS ✦ PROBLEM SOLVER ✦ STREAMLIT ✦ COLLABORATION ✦"
           baseSpeed={1.3}
           hoverSpeed={0.3}
           scrollSpeed={6}
+          className="text-sm sm:text-base md:text-lg font-black"
         />
       </div>
 
-      {/* 3. RIGHT VERTICAL PROMINENT MARQUEE STRIP (Desktop) */}
-      <div className="hidden xl:flex absolute right-0 top-0 bottom-0 w-12 bg-black text-white border-l-2 sm:border-l-3 border-black font-black uppercase text-xs sm:text-sm tracking-widest z-10 items-center justify-center">
+      {/* 3. RIGHT VERTICAL PROMINENT MARQUEE STRIP */}
+      <div className="hidden lg:flex absolute right-0 top-0 bottom-0 w-14 sm:w-16 bg-black text-white border-l-3 border-black font-black uppercase text-sm sm:text-base md:text-lg tracking-widest z-10 items-center justify-center shadow-[-2px_0px_0px_0px_rgba(0,0,0,1)]">
         <VerticalMarquee
           text="✦ GENAI & NO-CODE ML ✦ DELINQUENCY PREDICTOR ✦ AGENTIC AI ✦ AUTOMATION WORKFLOWS ✦"
           reverse={true}
           baseSpeed={1.3}
           hoverSpeed={0.3}
           scrollSpeed={6}
+          className="text-sm sm:text-base md:text-lg font-black"
         />
       </div>
 
       {/* MAIN CONTENT INNER CONTAINER */}
-      <div className="max-w-6xl mx-auto px-4 sm:px-8 xl:px-20 py-12 sm:py-20 relative z-10">
+      <div className="max-w-6xl mx-auto px-4 sm:px-10 lg:px-24 py-12 sm:py-20 relative z-10">
         {/* Heading */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}

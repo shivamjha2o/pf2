@@ -72,19 +72,19 @@ export default function VerticalMarquee({
   return (
     <div
       ref={containerRef}
-      className={`flex overflow-hidden h-full whitespace-nowrap pointer-events-auto cursor-ns-resize select-none ${className}`}
+      className={`flex overflow-hidden h-full w-full whitespace-nowrap pointer-events-auto cursor-ns-resize select-none items-center justify-center ${className}`}
       onMouseEnter={() => { speed.current = hoverSpeed * (reverse ? -1 : 1); }}
       onMouseLeave={() => { speed.current = baseSpeed; }}
     >
-      <div ref={textRef} className="flex flex-col flex-shrink-0 h-max [writing-mode:vertical-rl] items-center">
-        <div className="flex flex-col h-max">
+      <div ref={textRef} className="flex flex-col flex-shrink-0 h-max [writing-mode:vertical-rl] items-center justify-center text-center">
+        <div className="flex flex-col h-max items-center">
           {[...Array(6)].map((_, i) => (
-            <span key={i} className="py-4 tracking-wider">{text}</span>
+            <span key={i} className="py-6 tracking-widest text-sm sm:text-base md:text-lg font-black uppercase inline-block whitespace-nowrap">{text}</span>
           ))}
         </div>
-        <div className="flex flex-col h-max">
+        <div className="flex flex-col h-max items-center">
           {[...Array(6)].map((_, i) => (
-            <span key={i} className="py-4 tracking-wider">{text}</span>
+            <span key={i} className="py-6 tracking-widest text-sm sm:text-base md:text-lg font-black uppercase inline-block whitespace-nowrap">{text}</span>
           ))}
         </div>
       </div>
