@@ -189,13 +189,13 @@ const Projects = () => {
                     </div>
 
                     {/* Bottom Tags & Case Study CTA */}
-                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mt-6 pt-4 border-t-2 border-black/10">
-                      {/* High-Contrast Enhanced Tag Pills */}
-                      <div className="flex flex-wrap gap-2">
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mt-8 pt-5 border-t-2 border-black/10">
+                      {/* High-Contrast Enhanced Tag Pills with Healthy Spacing */}
+                      <div className="flex flex-wrap items-center gap-x-2.5 gap-y-2.5">
                         {project.tags.map(tag => (
                           <span
                             key={tag}
-                            className="bg-[#B8FF65]/20 hover:bg-[#B8FF65] text-black font-extrabold text-[11px] sm:text-xs px-3 py-1 border border-black rounded-full uppercase tracking-wider transition-all duration-200 shadow-[1.5px_1.5px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-0.5 cursor-default"
+                            className="bg-[#B8FF65]/20 hover:bg-[#B8FF65] text-black font-extrabold text-[11px] sm:text-xs px-3.5 py-1.5 border border-black rounded-full uppercase tracking-wider transition-all duration-200 shadow-[1.5px_1.5px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-0.5 cursor-default leading-none"
                           >
                             {tag}
                           </span>
@@ -205,7 +205,7 @@ const Projects = () => {
                       {/* View Details Button */}
                       <button
                         onClick={() => handleOpenDetails(project)}
-                        className="bg-black hover:bg-[#B8FF65] text-white hover:text-black font-black text-xs uppercase tracking-wider px-4 py-2 rounded-xl border-2 border-black transition-colors shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] active:translate-x-0.5 active:translate-y-0.5 self-start sm:self-auto shrink-0 flex items-center gap-1.5 group cursor-pointer"
+                        className="bg-black hover:bg-[#B8FF65] text-white hover:text-black font-black text-xs uppercase tracking-wider px-4 py-2.5 rounded-xl border-2 border-black transition-colors shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] active:translate-x-0.5 active:translate-y-0.5 self-start sm:self-auto shrink-0 flex items-center gap-1.5 group cursor-pointer"
                       >
                         <span>View Details</span>
                         <span className="group-hover:translate-x-1 transition-transform">↗</span>
