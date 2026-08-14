@@ -27,12 +27,12 @@ export default function AnimatedRoleBullets() {
         visible: {
           opacity: 1,
           transition: {
-            staggerChildren: 0.18,
-            delayChildren: 0.2,
+            staggerChildren: 0.15,
+            delayChildren: 0.15,
           },
         },
       }}
-      className="flex flex-col gap-5 sm:gap-6"
+      className="flex flex-col gap-4 sm:gap-5"
     >
       {items.map((item, idx) => {
         const isHovered = hoveredIndex === idx;
@@ -43,7 +43,7 @@ export default function AnimatedRoleBullets() {
             onMouseEnter={() => setHoveredIndex(idx)}
             onMouseLeave={() => setHoveredIndex(null)}
             variants={{
-              hidden: { opacity: 0, x: -25, y: 10, filter: 'blur(4px)' },
+              hidden: { opacity: 0, x: -20, y: 8, filter: 'blur(3px)' },
               visible: {
                 opacity: 1,
                 x: 0,
@@ -51,15 +51,15 @@ export default function AnimatedRoleBullets() {
                 filter: 'blur(0px)',
                 transition: {
                   type: 'spring',
-                  stiffness: 260,
-                  damping: 20,
+                  stiffness: 280,
+                  damping: 22,
                 },
               },
             }}
             whileHover={{ x: 6, transition: { type: 'spring', stiffness: 400, damping: 25 } }}
-            className="group relative cursor-pointer select-none p-2 -mx-2 rounded-xl transition-colors duration-200 hover:bg-black/5"
+            className="group relative cursor-pointer select-none p-2.5 -mx-2.5 rounded-xl transition-all duration-200 hover:bg-black/5"
           >
-            {/* Left Accent Bar on Hover */}
+            {/* Left Accent Indicator Bar on Hover */}
             <motion.div
               initial={false}
               animate={{
@@ -73,8 +73,8 @@ export default function AnimatedRoleBullets() {
             {/* Label Row */}
             <div className="flex items-center gap-2 mb-1">
               <motion.span
-                animate={isHovered ? { scale: [1, 1.4, 1], rotate: [0, 15, -10, 0] } : { scale: 1, rotate: 0 }}
-                transition={{ duration: 0.4 }}
+                animate={isHovered ? { scale: [1, 1.35, 1], rotate: [0, 15, -10, 0] } : { scale: 1, rotate: 0 }}
+                transition={{ duration: 0.35 }}
                 className="w-2 h-2 rounded-full bg-[#B8FF65] border border-black inline-block shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]"
               />
               <p className="text-xs font-bold uppercase text-gray-500 tracking-wider group-hover:text-black transition-colors">
@@ -96,36 +96,15 @@ export default function AnimatedRoleBullets() {
               </motion.span>
             </div>
 
-            {/* Value Row with Natural Typography & Word/Character Wave */}
+            {/* Value Row with Clean Typography and Smooth Hover Shift */}
             <div className="overflow-hidden py-0.5">
-              <p className="font-handwritten text-2xl sm:text-3xl font-bold text-black leading-tight tracking-normal inline-flex flex-wrap gap-x-1.5">
-                {item.value.split(' ').map((word, wordIdx) => (
-                  <span key={wordIdx} className="inline-flex whitespace-nowrap">
-                    {Array.from(word).map((char, charIdx) => (
-                      <motion.span
-                        key={charIdx}
-                        initial={{ y: 0 }}
-                        animate={
-                          isHovered
-                            ? {
-                                y: [-1, -6, 0],
-                                rotate: [-1, 3, 0],
-                              }
-                            : { y: 0, rotate: 0 }
-                        }
-                        transition={{
-                          duration: 0.35,
-                          delay: (wordIdx * 4 + charIdx) * 0.02,
-                          ease: 'easeInOut',
-                        }}
-                        className="inline-block"
-                      >
-                        {char}
-                      </motion.span>
-                    ))}
-                  </span>
-                ))}
-              </p>
+              <motion.p
+                animate={isHovered ? { x: 3 } : { x: 0 }}
+                transition={{ type: 'spring', stiffness: 400, damping: 25 }}
+                className="text-xl sm:text-2xl font-black text-black tracking-tight leading-tight transition-colors group-hover:text-[#111111]"
+              >
+                {item.value}
+              </motion.p>
             </div>
           </motion.div>
         );

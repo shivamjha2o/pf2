@@ -30,7 +30,6 @@ export function AnimatedCounter({
     let startTime: number | null = null;
     let animationFrame: number;
 
-    // Smooth easeOutExpo curve for realistic count-up acceleration and gentle stop
     const easeOutExpo = (t: number): number => {
       return t === 1 ? 1 : 1 - Math.pow(2, -10 * t);
     };
@@ -80,7 +79,7 @@ interface StatItemProps {
 export function StatCard({ value, prefix = "", suffix = "", label, sublabel }: StatItemProps) {
   return (
     <div className="relative bg-white p-4 sm:p-5 border-2 sm:border-3 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] rounded-xl flex flex-col justify-between cursor-default transition-all duration-300 ease-out hover:-translate-y-1.5 hover:shadow-[0_0_0_2px_#000000,0_0_22px_rgba(184,255,101,0.65),6px_6px_0px_0px_rgba(0,0,0,1)] group overflow-hidden">
-      {/* Background Accent Shimmer on Hover */}
+      {/* Subtle Glow & Shimmer Accent */}
       <span className="absolute -top-10 -right-10 w-24 h-24 bg-[#B8FF65]/30 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
 
       <div className="flex items-baseline gap-1 mb-1 relative z-10">
