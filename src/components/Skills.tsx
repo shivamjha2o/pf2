@@ -100,11 +100,11 @@ const Skills = () => {
                   transition: { type: "spring", stiffness: 450, damping: 15 }
                 }}
                 whileTap={{ scale: 0.95 }}
-                className="relative bg-[#B8FF65] hover:bg-[#cbfd7a] text-black font-extrabold border-2 border-black rounded-full px-4 py-1.5 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] cursor-pointer select-none transition-colors flex items-center gap-1.5 group"
+                className="relative bg-[#B8FF65] hover:bg-[#cbfd7a] text-black font-extrabold border-2 border-black rounded-full px-4 sm:px-4.5 py-2 sm:py-1.5 min-h-[40px] sm:min-h-[36px] shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] cursor-pointer select-none transition-colors flex items-center gap-1.5 group"
               >
                 {/* Glowing Accent Ring / Aura */}
                 <span className="absolute -inset-1 rounded-full bg-[#B8FF65]/50 opacity-0 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300 pointer-events-none -z-10 blur-[3px]" />
-                <span className="text-sm transition-transform group-hover:scale-125 group-hover:rotate-6 duration-200">{skill.icon}</span>
+                <span className="text-sm sm:text-base transition-transform group-hover:scale-125 group-hover:rotate-6 duration-200">{skill.icon}</span>
                 <span className="text-xs sm:text-sm">{skill.name}</span>
               </motion.div>
             ))}
@@ -143,7 +143,7 @@ const Skills = () => {
                     transition: { type: "spring", stiffness: 450, damping: 15 }
                   }}
                   whileTap={{ scale: 0.95 }}
-                  className="relative bg-[#B8FF65] hover:bg-[#cbfd7a] text-black border-2 border-black rounded-full px-3.5 py-1.5 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] font-extrabold text-xs sm:text-sm cursor-pointer select-none transition-colors group flex items-center gap-1"
+                  className="relative bg-[#B8FF65] hover:bg-[#cbfd7a] text-black border-2 border-black rounded-full px-4 py-2 min-h-[40px] sm:min-h-[36px] shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] font-extrabold text-xs sm:text-sm cursor-pointer select-none transition-colors group flex items-center gap-1.5"
                 >
                   <span className="absolute -inset-1 rounded-full bg-[#B8FF65]/40 opacity-0 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300 pointer-events-none -z-10 blur-[2px]" />
                   <span className="transition-transform group-hover:scale-125 duration-200">⚡</span>
@@ -183,7 +183,7 @@ const Skills = () => {
                     transition: { type: "spring", stiffness: 450, damping: 15 }
                   }}
                   whileTap={{ scale: 0.95 }}
-                  className="relative bg-[#B8FF65] hover:bg-[#cbfd7a] text-black border-2 border-black rounded-full px-3.5 py-1.5 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] font-extrabold text-xs sm:text-sm cursor-pointer select-none transition-colors group flex items-center gap-1"
+                  className="relative bg-[#B8FF65] hover:bg-[#cbfd7a] text-black border-2 border-black rounded-full px-4 py-2 min-h-[40px] sm:min-h-[36px] shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] font-extrabold text-xs sm:text-sm cursor-pointer select-none transition-colors group flex items-center gap-1.5"
                 >
                   <span className="absolute -inset-1 rounded-full bg-[#B8FF65]/40 opacity-0 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300 pointer-events-none -z-10 blur-[2px]" />
                   <span className="transition-transform group-hover:scale-125 duration-200">🗣️</span>

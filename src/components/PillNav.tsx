@@ -209,23 +209,31 @@ const PillNav: React.FC<PillNavProps> = ({
         gsap.set(menu, { visibility: 'visible' });
         gsap.fromTo(
           menu,
-          { opacity: 0, y: 10, scaleY: 1 },
+          { opacity: 0, y: -18, scaleY: 0.85 },
           {
             opacity: 1,
             y: 0,
             scaleY: 1,
-            duration: 0.3,
-            ease,
+            duration: 0.35,
+            ease: 'back.out(1.4)',
             transformOrigin: 'top center'
           }
         );
+        const listItems = menu.querySelectorAll('li');
+        if (listItems.length) {
+          gsap.fromTo(
+            listItems,
+            { opacity: 0, y: -8 },
+            { opacity: 1, y: 0, duration: 0.25, stagger: 0.04, ease: 'power2.out', delay: 0.06 }
+          );
+        }
       } else {
         gsap.to(menu, {
           opacity: 0,
-          y: 10,
-          scaleY: 1,
+          y: -12,
+          scaleY: 0.9,
           duration: 0.2,
-          ease,
+          ease: 'power2.in',
           transformOrigin: 'top center',
           onComplete: () => {
             gsap.set(menu, { visibility: 'hidden' });
@@ -436,31 +444,35 @@ const PillNav: React.FC<PillNavProps> = ({
 
       <div
         ref={mobileMenuRef}
-        className="md:hidden absolute top-[3.5em] left-4 right-4 rounded-[27px] shadow-[0_8px_32px_rgba(0,0,0,0.12)] z-[998] origin-top"
+        className="md:hidden absolute top-[4.2em] left-4 right-4 rounded-2xl border-3 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] z-[998] origin-top bg-white p-2.5 backdrop-blur-md"
         style={{
           ...cssVars,
-          background: 'var(--base, #f0f0f0)'
+          background: '#ffffff'
         }}
       >
-        <ul className="list-none m-0 p-[3px] flex flex-col gap-[3px]">
+        <ul className="list-none m-0 p-0 flex flex-col gap-2">
           {items.map(item => {
             const isMobileActive = activeHref === item.href;
             const defaultStyle: React.CSSProperties = {
-              background: isMobileActive ? '#B8FF65' : 'var(--pill-bg, #fff)',
-              color: isMobileActive ? '#000000' : 'var(--pill-text, #000)',
-              fontWeight: isMobileActive ? 900 : 600
+              background: isMobileActive ? '#B8FF65' : '#ffffff',
+              color: '#000000',
+              fontWeight: isMobileActive ? 900 : 700
             };
             const hoverIn = (e: React.MouseEvent<HTMLAnchorElement>) => {
-              e.currentTarget.style.background = 'var(--base)';
-              e.currentTarget.style.color = 'var(--hover-text, #fff)';
+              if (!isMobileActive) {
+                e.currentTarget.style.background = '#000000';
+                e.currentTarget.style.color = '#B8FF65';
+              }
             };
             const hoverOut = (e: React.MouseEvent<HTMLAnchorElement>) => {
-              e.currentTarget.style.background = 'var(--pill-bg, #fff)';
-              e.currentTarget.style.color = 'var(--pill-text, #fff)';
+              if (!isMobileActive) {
+                e.currentTarget.style.background = '#ffffff';
+                e.currentTarget.style.color = '#000000';
+              }
             };
 
             const linkClasses =
-              'block py-3 px-4 text-[16px] font-medium rounded-[50px] transition-all duration-200 ease-[cubic-bezier(0.25,0.1,0.25,1)]';
+              'block py-3.5 px-5 text-[14px] font-black uppercase tracking-wider rounded-xl border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] active:translate-x-0.5 active:translate-y-0.5 transition-all duration-150 flex items-center justify-between';
 
             return (
               <li key={item.href}>
