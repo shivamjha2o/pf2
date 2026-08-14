@@ -188,10 +188,13 @@ const Projects = () => {
                       <p className="text-gray-800 text-sm sm:text-base font-medium leading-relaxed" dangerouslySetInnerHTML={{ __html: project.desc }}></p>
                     </div>
 
+                    {/* Divider Line with Generous Spacing */}
+                    <div className="w-full h-[1.5px] bg-black/15 mt-8 mb-6" />
+
                     {/* Bottom Tags & Case Study CTA */}
-                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mt-8 pt-5 border-t-2 border-black/10">
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-1">
                       {/* High-Contrast Enhanced Tag Pills with Healthy Spacing */}
-                      <div className="flex flex-wrap items-center gap-x-2.5 gap-y-2.5">
+                      <div className="flex flex-wrap items-center gap-x-2.5 gap-y-3">
                         {project.tags.map(tag => (
                           <span
                             key={tag}
@@ -205,7 +208,7 @@ const Projects = () => {
                       {/* View Details Button */}
                       <button
                         onClick={() => handleOpenDetails(project)}
-                        className="bg-black hover:bg-[#B8FF65] text-white hover:text-black font-black text-xs uppercase tracking-wider px-4 py-2.5 rounded-xl border-2 border-black transition-colors shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] active:translate-x-0.5 active:translate-y-0.5 self-start sm:self-auto shrink-0 flex items-center gap-1.5 group cursor-pointer"
+                        className="bg-black hover:bg-[#B8FF65] text-white hover:text-black font-black text-xs sm:text-sm uppercase tracking-wider px-5 py-2.5 rounded-xl border-2 border-black transition-colors shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] active:translate-x-0.5 active:translate-y-0.5 self-start sm:self-auto shrink-0 flex items-center gap-1.5 group cursor-pointer"
                       >
                         <span>View Details</span>
                         <span className="group-hover:translate-x-1 transition-transform">↗</span>
