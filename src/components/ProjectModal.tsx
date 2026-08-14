@@ -27,7 +27,6 @@ interface ProjectModalProps {
 }
 
 export default function ProjectModal({ project, isOpen, onClose }: ProjectModalProps) {
-  // Lock body scroll when modal is open
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = "hidden";
@@ -79,7 +78,7 @@ export default function ProjectModal({ project, isOpen, onClose }: ProjectModalP
 
               <button
                 onClick={onClose}
-                className="w-10 h-10 shrink-0 bg-gray-100 hover:bg-[#B8FF65] border-2 border-black rounded-full font-black text-lg flex items-center justify-center transition-colors shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] active:translate-x-0.5 active:translate-y-0.5"
+                className="w-10 h-10 shrink-0 bg-gray-100 hover:bg-[#B8FF65] border-2 border-black rounded-full font-black text-lg flex items-center justify-center transition-colors shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] active:translate-x-0.5 active:translate-y-0.5 cursor-pointer"
                 aria-label="Close modal"
               >
                 ✕
@@ -158,7 +157,7 @@ export default function ProjectModal({ project, isOpen, onClose }: ProjectModalP
                 </a>
                 <button
                   onClick={onClose}
-                  className="bg-white hover:bg-gray-100 text-black font-black text-xs sm:text-sm uppercase tracking-wider px-5 py-2.5 rounded-xl border-2 border-black transition-colors shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] active:translate-x-0.5 active:translate-y-0.5 ml-auto"
+                  className="bg-white hover:bg-gray-100 text-black font-black text-xs sm:text-sm uppercase tracking-wider px-5 py-2.5 rounded-xl border-2 border-black transition-colors shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] active:translate-x-0.5 active:translate-y-0.5 ml-auto cursor-pointer"
                 >
                   Close Case Study
                 </button>

@@ -96,15 +96,31 @@ export default function AnimatedRoleBullets() {
               </motion.span>
             </div>
 
-            {/* Value Row with Clean Typography and Smooth Hover Shift */}
+            {/* Value Row with Natural Typography & Word Wave Animation */}
             <div className="overflow-hidden py-0.5">
-              <motion.p
-                animate={isHovered ? { x: 3 } : { x: 0 }}
-                transition={{ type: 'spring', stiffness: 400, damping: 25 }}
-                className="text-xl sm:text-2xl font-black text-black tracking-tight leading-tight transition-colors group-hover:text-[#111111]"
-              >
-                {item.value}
-              </motion.p>
+              <p className="text-xl sm:text-2xl font-black text-black tracking-tight leading-tight flex flex-wrap gap-x-1.5">
+                {item.value.split(' ').map((word, wordIdx) => (
+                  <motion.span
+                    key={wordIdx}
+                    animate={
+                      isHovered
+                        ? {
+                            y: [-1, -5, 0],
+                            rotate: [-0.5, 1.5, 0],
+                          }
+                        : { y: 0, rotate: 0 }
+                    }
+                    transition={{
+                      duration: 0.3,
+                      delay: wordIdx * 0.06,
+                      ease: 'easeInOut',
+                    }}
+                    className="inline-block whitespace-nowrap"
+                  >
+                    {word}
+                  </motion.span>
+                ))}
+              </p>
             </div>
           </motion.div>
         );
