@@ -324,10 +324,12 @@ const PillNav: React.FC<PillNavProps> = ({
               const isActive = activeHref === item.href;
 
               const pillStyle: React.CSSProperties = {
-                background: 'var(--pill-bg, #fff)',
-                color: 'var(--pill-text, var(--base, #000))',
+                background: isActive ? '#B8FF65' : 'var(--pill-bg, #fff)',
+                color: isActive ? '#000000' : 'var(--pill-text, var(--base, #000))',
+                fontWeight: isActive ? 900 : 700,
                 paddingLeft: 'var(--pill-pad-x)',
-                paddingRight: 'var(--pill-pad-x)'
+                paddingRight: 'var(--pill-pad-x)',
+                transition: 'background 0.2s ease, color 0.2s ease'
               };
 
               const PillContent = (
@@ -442,9 +444,11 @@ const PillNav: React.FC<PillNavProps> = ({
       >
         <ul className="list-none m-0 p-[3px] flex flex-col gap-[3px]">
           {items.map(item => {
+            const isMobileActive = activeHref === item.href;
             const defaultStyle: React.CSSProperties = {
-              background: 'var(--pill-bg, #fff)',
-              color: 'var(--pill-text, #fff)'
+              background: isMobileActive ? '#B8FF65' : 'var(--pill-bg, #fff)',
+              color: isMobileActive ? '#000000' : 'var(--pill-text, #000)',
+              fontWeight: isMobileActive ? 900 : 600
             };
             const hoverIn = (e: React.MouseEvent<HTMLAnchorElement>) => {
               e.currentTarget.style.background = 'var(--base)';
