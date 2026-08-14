@@ -72,7 +72,7 @@ const Contact = () => {
           </h2>
           <div>
             <p className="mt-4 sm:mt-6 text-gray-800 max-w-2xl mx-auto text-xs sm:text-base font-medium bg-white p-3 border border-black inline-block shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-              Open for <span className="highlight-marker">Data Analytics</span>, Electronics, and AI/ML opportunities. Feel free to reach out!
+              Open for <span className="highlight-marker">Data Analytics</span>, <span className="highlight-marker">Electronics</span>, and <span className="highlight-marker">AI/ML</span> opportunities. Feel free to reach out!
             </p>
           </div>
         </motion.div>
