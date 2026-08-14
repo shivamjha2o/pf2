@@ -104,7 +104,7 @@ const Projects = () => {
   };
 
   return (
-    <section id="projects" className="pt-16 pb-52 sm:pt-24 sm:pb-80 bg-transparent text-black relative">
+    <section id="projects" className="pt-16 pb-20 sm:pt-24 sm:pb-28 bg-transparent text-black relative">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
@@ -145,15 +145,15 @@ const Projects = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
           transition={{ duration: 0.6, delay: 0.15, ease: "easeOut" }}
-          className="w-full mb-12 sm:mb-20"
+          className="w-full"
         >
           <ScrollStack
             useWindowScroll={true}
             itemDistance={60}
             itemScale={0.04}
             itemStackDistance={25}
-            stackPosition="18%"
-            scaleEndPosition="10%"
+            stackPosition="20%"
+            scaleEndPosition="12%"
             baseScale={0.9}
             blurAmount={0}
           >
