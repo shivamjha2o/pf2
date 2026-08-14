@@ -14,8 +14,8 @@ const Footer = () => {
         className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center"
       >
         <div className="mb-4 md:mb-0">
-          <a href="#home" className="text-xl font-black text-black tracking-tight uppercase bg-white px-3 py-1 border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] inline-block hover:bg-[#B8FF65] transition-colors">
-            Shivam <span className="underline decoration-2">Kumar Jha</span>
+          <a href="#home" className="text-xl font-black text-black tracking-tight uppercase bg-white px-3 py-1 border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] inline-block hover:bg-[#B8FF65] transition-colors underline decoration-2 underline-offset-4">
+            Shivam Kumar Jha
           </a>
         </div>
         <div className="flex space-x-4">
