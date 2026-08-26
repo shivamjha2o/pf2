@@ -16,19 +16,33 @@ export function AnimatedCounter({
   value,
   prefix = "",
   suffix = "",
-  duration = 2,
+  duration = 1.6,
   decimals = 0,
   className = "",
 }: AnimatedCounterProps) {
   const ref = useRef<HTMLSpanElement | null>(null);
-  const isInView = useInView(ref, { once: true, margin: "-40px" });
-  const [displayValue, setDisplayValue] = useState(0);
+  // Using positive margin so counting starts smoothly when approaching viewport
+  const isInView = useInView(ref, { once: true, margin: "100px 0px" });
+  // Always initialize displayValue with the real value to ensure zero placeholder values are never permanently shown
+  const [displayValue, setDisplayValue] = useState<number>(value);
+  const [hasAnimated, setHasAnimated] = useState(false);
 
   useEffect(() => {
-    if (!isInView) return;
+    if (!isInView || hasAnimated) return;
+
+    setHasAnimated(true);
+
+    const prefersReducedMotion =
+      typeof window !== "undefined" &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    if (prefersReducedMotion) {
+      setDisplayValue(value);
+      return;
+    }
 
     let startTime: number | null = null;
-    let animationFrame: number;
+    let animationFrameId: number;
 
     const easeOutExpo = (t: number): number => {
       return t === 1 ? 1 : 1 - Math.pow(2, -10 * t);
@@ -36,28 +50,33 @@ export function AnimatedCounter({
 
     const animate = (currentTime: number) => {
       if (!startTime) startTime = currentTime;
-      const progress = Math.min((currentTime - startTime) / (duration * 1000), 1);
+      const elapsed = (currentTime - startTime) / (duration * 1000);
+      const progress = Math.min(elapsed, 1);
       const easedProgress = easeOutExpo(progress);
       const currentVal = easedProgress * value;
 
       setDisplayValue(currentVal);
 
       if (progress < 1) {
-        animationFrame = requestAnimationFrame(animate);
+        animationFrameId = requestAnimationFrame(animate);
       } else {
         setDisplayValue(value);
       }
     };
 
-    animationFrame = requestAnimationFrame(animate);
+    setDisplayValue(0);
+    animationFrameId = requestAnimationFrame(animate);
 
-    return () => cancelAnimationFrame(animationFrame);
-  }, [isInView, value, duration]);
+    return () => {
+      cancelAnimationFrame(animationFrameId);
+      setDisplayValue(value);
+    };
+  }, [isInView, value, duration, hasAnimated]);
 
   const formattedNumber =
     decimals > 0
       ? displayValue.toFixed(decimals)
-      : Math.floor(displayValue).toLocaleString();
+      : Math.round(displayValue).toLocaleString();
 
   return (
     <span ref={ref} className={`font-mono font-black inline-block ${className}`}>
@@ -87,7 +106,7 @@ export function StatCard({ value, prefix = "", suffix = "", label, sublabel }: S
           value={value}
           prefix={prefix}
           suffix={suffix}
-          duration={2.2}
+          duration={1.8}
           className="text-2xl sm:text-4xl text-black group-hover:text-[#111111] transition-colors"
         />
       </div>
@@ -101,3 +120,4 @@ export function StatCard({ value, prefix = "", suffix = "", label, sublabel }: S
     </div>
   );
 }
+

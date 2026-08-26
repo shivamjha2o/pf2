@@ -77,12 +77,16 @@ export default function ProjectModal({ project, isOpen, onClose }: ProjectModalP
             {/* Header with Close Button */}
             <div className="flex items-start justify-between gap-4 pb-4 mb-5 border-b-2 border-black sticky -top-5 sm:-top-8 bg-white pt-2 z-20">
               <div>
-                <div className="flex items-center gap-2 mb-1.5">
+                <div className="flex flex-wrap items-center gap-2 mb-2">
                   <span className="text-xs sm:text-sm font-black uppercase tracking-wider bg-[#B8FF65] text-black px-3 py-1 border-2 border-black rounded-md shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
                     {project.category}
                   </span>
                   <span className="font-mono text-xs sm:text-sm font-bold bg-black text-white px-3 py-1 rounded-full shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
                     {project.year}
+                  </span>
+                  <span className="text-xs sm:text-sm font-black uppercase tracking-wider bg-black text-[#B8FF65] border-2 border-black px-3 py-1 rounded-md shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] flex items-center gap-1">
+                    <span className="text-[10px] text-gray-400">Impact:</span>
+                    <span>{project.metricValue.toLocaleString()}{project.metricSuffix}</span>
                   </span>
                 </div>
                 <h3 className="text-xl sm:text-3xl font-black tracking-tight">{project.title}</h3>
