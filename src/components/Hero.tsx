@@ -138,13 +138,26 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* Hero Bottom Buttons */}
-      <div className="flex justify-center gap-3.5 sm:gap-4 relative z-20 px-4 mt-6">
+      {/* Hero Bottom Action Buttons */}
+      <div className="flex flex-wrap justify-center items-center gap-3 sm:gap-4 relative z-20 px-4 mt-6">
         <a
           href="#projects"
-          className="bg-black hover:bg-[#B8FF65] hover:text-black text-white px-5 sm:px-6 py-2.5 sm:py-3 text-xs sm:text-sm rounded-full font-black uppercase tracking-wider transition-all border-2 sm:border-3 border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] sm:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] active:translate-x-0.5 active:translate-y-0.5 whitespace-nowrap"
+          className="bg-black hover:bg-[#B8FF65] hover:text-black text-white px-5 sm:px-6 py-2.5 sm:py-3 text-xs sm:text-sm rounded-full font-black uppercase tracking-wider transition-all border-2 sm:border-3 border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] sm:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] active:translate-x-0.5 active:translate-y-0.5 whitespace-nowrap flex items-center gap-1.5"
         >
-          View My Projects
+          <span>View My Projects</span>
+          <span className="text-xs">↓</span>
+        </a>
+        <a
+          href="/Shivam_Kumar_Jha_Resume.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          download="Shivam_Kumar_Jha_Resume.pdf"
+          className="bg-[#B8FF65] hover:bg-black hover:text-[#B8FF65] text-black px-5 sm:px-6 py-2.5 sm:py-3 text-xs sm:text-sm rounded-full font-black uppercase tracking-wider transition-all border-2 sm:border-3 border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] sm:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] active:translate-x-0.5 active:translate-y-0.5 whitespace-nowrap flex items-center gap-1.5 group"
+          title="Download PDF Resume"
+        >
+          <span>📄</span>
+          <span>Download Resume</span>
+          <span className="text-xs group-hover:translate-y-0.5 transition-transform">↓</span>
         </a>
         <a
           href="#about"
@@ -158,4 +171,5 @@ const Hero = () => {
 };
 
 export default Hero;
+
 
