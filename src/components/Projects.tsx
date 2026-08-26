@@ -18,27 +18,28 @@ const projectsData: ProjectDetail[] = [
   {
     id: 1,
     title: 'Customer Delinquency Risk Predictor',
-    category: 'GenAI & No-Code ML',
+    category: 'GenAI & Predictive ML',
     year: '2025',
     metricValue: 10000,
-    metricSuffix: '+',
+    metricSuffix: '+ Profiles',
     metricLabel: 'Data Profiles Evaluated',
-    desc: 'Engineered a no-code predictive modeling architecture using GenAI modules to evaluate customer default exposure across <span class="highlight-marker">10,000+ data profiles</span>. Accelerated high-risk anomaly accuracy by <span class="highlight-marker">15%</span>.',
-    overview: 'Built a predictive scoring engine utilizing generative AI and automated machine learning heuristics to accurately classify debt delinquency probability among high-volume retail lending profiles.',
-    tools: ['Python', 'Pandas', 'NumPy', 'Scikit-Learn', 'GenAI Prompt Engineering', 'Streamlit'],
+    desc: 'Engineered a predictive scoring engine using Python, SQL, and GenAI modules to evaluate customer default exposure across <span class="highlight-marker">10,000+ portfolio records</span>. Accelerated high-risk anomaly detection accuracy by <span class="highlight-marker">15%</span>.',
+    overview: 'Built an end-to-end predictive scoring engine utilizing generative AI, SQL data aggregation pipelines, and machine learning heuristics to accurately classify loan delinquency probability among high-volume retail lending portfolios.',
+    tools: ['Python', 'SQL (PostgreSQL)', 'Pandas', 'NumPy', 'Scikit-Learn', 'GenAI Prompt Engineering', 'Streamlit', 'Jupyter Notebook (.ipynb)'],
     workflow: [
-      'Aggregated & cleaned raw loan portfolio telemetry from CSV datasets.',
-      'Constructed exploratory feature pipelines & missing-value imputations.',
-      'Trained classification baseline models benchmarking against legacy delinquency scorecards.',
-      'Integrated GenAI reasoning agents to synthesize natural-language risk summary memos for loan officers.'
+      'Aggregated and cleaned raw loan portfolio telemetry from relational SQL databases and CSV data lakes.',
+      'Constructed exploratory feature pipelines, missing-value imputations, and delinquency risk distributions in Jupyter Notebook.',
+      'Trained classification baseline models benchmarking against legacy delinquency scorecards with 15% lower false positives.',
+      'Integrated GenAI reasoning agents to synthesize natural-language risk summary memos for loan officers via an interactive Streamlit UI.'
     ],
     impact: [
       'Processed and classified 10,000+ customer records with 15% lower false-positive rate.',
-      'Reduced initial portfolio audit times from days to minutes.',
-      'Enabled proactive restructuring recommendations before defaults occurred.'
+      'Reduced initial portfolio risk audit times from days to minutes.',
+      'Enabled proactive restructuring recommendations before customer defaults occurred.'
     ],
-    githubUrl: 'https://github.com/shivamjha2o',
-    tags: ['GenAI', 'No-Code ML', 'Exploratory Analytics', 'Risk Scoring']
+    githubUrl: 'https://github.com/shivamjha2o/Customer-Delinquency-Risk-Predictor',
+    demoUrl: 'https://github.com/shivamjha2o/Customer-Delinquency-Risk-Predictor',
+    tags: ['Python', 'SQL', 'GenAI', 'Predictive Scoring', 'Streamlit', 'EDA']
   },
   {
     id: 2,
@@ -46,23 +47,23 @@ const projectsData: ProjectDetail[] = [
     category: 'Agentic AI & Automation',
     year: '2025',
     metricValue: 22,
-    metricSuffix: '%',
+    metricSuffix: '% Reduction',
     metricLabel: 'Response Lag Reduced',
-    desc: 'Designed an end-to-end automated collection framework backed by <span class="highlight-marker">agentic AI networks</span>. Secured a target <span class="highlight-marker">22% reduction</span> in tracking response lag times while matching ethical compliance structures.',
-    overview: 'Devised an autonomous multi-agent orchestration architecture that monitors delinquency aging brackets and dispatches customized, compliant recovery touchpoints without manual intervention.',
-    tools: ['Python', 'Agentic AI Workflows', 'REST APIs', 'MS Excel Automation', 'JSON Schema'],
+    desc: 'Designed an autonomous multi-agent orchestration architecture backed by <span class="highlight-marker">agentic AI workflows</span>. Secured a target <span class="highlight-marker">22% reduction</span> in borrower query lag times while ensuring ethical compliance structures.',
+    overview: 'Devised an autonomous multi-agent collection strategy that monitors delinquency aging brackets, queries structured SQL logs, and automatically dispatches customized, compliant recovery touchpoints without manual delay.',
+    tools: ['Python', 'Agentic AI Workflows', 'SQL Logs', 'REST APIs', 'MS Excel Automation', 'JSON Schema Guardrails'],
     workflow: [
-      'Mapped communication funnel paths based on borrower delinquency tiers.',
-      'Deployed agentic AI workflows with strict regulatory compliance guardrails.',
-      'Implemented automated status tracking dashboards updating in real-time.'
+      'Mapped communication funnel paths and borrower risk tiers based on aging query telemetry from structured databases.',
+      'Deployed agentic AI workflows with strict regulatory compliance and ethical guardrails.',
+      'Implemented automated status tracking dashboards updating operational recovery teams in real time.'
     ],
     impact: [
       'Delivered a 22% reduction in borrower query and status update latency.',
       'Maintained 100% adherence to financial compliance standards.',
       'Streamlined account tracking workflows across recovery management teams.'
     ],
-    githubUrl: 'https://github.com/shivamjha2o',
-    tags: ['Agentic AI', 'Automation', 'Workflow Optimization', 'Compliance']
+    githubUrl: 'https://github.com/shivamjha2o/AI-Driven-Collections-Strategy',
+    tags: ['Agentic AI', 'Automation', 'Python', 'SQL Telemetry', 'Workflow Optimization']
   },
   {
     id: 3,
@@ -72,21 +73,21 @@ const projectsData: ProjectDetail[] = [
     metricValue: 3,
     metricSuffix: ' Domains',
     metricLabel: 'Enterprise Security Matrix',
-    desc: 'Built an enterprise-level Identity and Access Management matrix managing access control across <span class="highlight-marker">3 separate business domains</span>. Authored system technical blueprints and threat mitigation decks.',
+    desc: 'Built an enterprise-level Identity and Access Management matrix managing access control across <span class="highlight-marker">3 separate business domains</span>. Authored system technical blueprints, zero-trust policies, and threat mitigation decks.',
     overview: 'Conducted an enterprise network simulation designing Role-Based Access Control (RBAC) and least-privilege identity architecture protecting sensitive corporate databases and API boundaries.',
-    tools: ['IAM Policies', 'RBAC Architecture', 'Security Compliance', 'Zero Trust Principles'],
+    tools: ['IAM Policies', 'RBAC Architecture', 'Zero Trust Principles', 'Security Compliance', 'Policy Matrix'],
     workflow: [
-      'Audited privilege escalation vulnerabilities across organizational units.',
+      'Audited privilege escalation vulnerabilities and access paths across organizational units.',
       'Structured granular RBAC permissions matrix covering 3 distinct business domains.',
-      'Authored corporate threat remediation playbooks and incident response checklists.'
+      'Authored corporate threat remediation playbooks, executive compliance decks, and incident response checklists.'
     ],
     impact: [
       'Standardized least-privilege access governance across multiple operational pillars.',
       'Eliminated redundant access credentials and unmonitored privileged roles.',
       'Created clear executive compliance artifacts and architectural blueprints.'
     ],
-    githubUrl: 'https://github.com/shivamjha2o',
-    tags: ['Cybersecurity', 'IAM Controls', 'Access Matrix', 'Security Architecture']
+    githubUrl: 'https://github.com/shivamjha2o/IAM-Enterprise-Security-Framework',
+    tags: ['Cybersecurity', 'IAM Controls', 'RBAC Matrix', 'Zero Trust', 'Governance']
   }
 ];
 

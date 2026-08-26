@@ -17,6 +17,7 @@ export interface ProjectDetail {
   workflow: string[];
   impact: string[];
   githubUrl?: string;
+  demoUrl?: string;
   tags: string[];
 }
 
@@ -162,20 +163,30 @@ export default function ProjectModal({ project, isOpen, onClose }: ProjectModalP
               </div>
 
               {/* Action Buttons */}
-              <div className="pt-4 border-t-2 border-black flex flex-wrap gap-3 sticky -bottom-5 sm:-bottom-8 bg-white pb-2">
+              <div className="pt-4 border-t-2 border-black flex flex-wrap items-center gap-3 sticky -bottom-5 sm:-bottom-8 bg-white pb-2">
                 <a
                   href={project.githubUrl || "https://github.com/shivamjha2o"}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="bg-black hover:bg-[#B8FF65] text-white hover:text-black font-black text-xs sm:text-sm uppercase tracking-wider px-5 py-2.5 rounded-xl border-2 border-black transition-colors shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] active:translate-x-0.5 active:translate-y-0.5 inline-flex items-center gap-2"
                 >
-                  <span>💻</span> View on GitHub
+                  <span>💻</span> View Source Code
                 </a>
+                {project.demoUrl && (
+                  <a
+                    href={project.demoUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="bg-[#B8FF65] hover:bg-black text-black hover:text-[#B8FF65] font-black text-xs sm:text-sm uppercase tracking-wider px-5 py-2.5 rounded-xl border-2 border-black transition-colors shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] active:translate-x-0.5 active:translate-y-0.5 inline-flex items-center gap-2"
+                  >
+                    <span>🚀</span> Live Demo
+                  </a>
+                )}
                 <button
                   onClick={onClose}
                   className="bg-white hover:bg-gray-100 text-black font-black text-xs sm:text-sm uppercase tracking-wider px-5 py-2.5 rounded-xl border-2 border-black transition-colors shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] active:translate-x-0.5 active:translate-y-0.5 ml-auto cursor-pointer"
                 >
-                  Close Case Study
+                  Close
                 </button>
               </div>
             </div>
