@@ -51,10 +51,10 @@ const Hero = () => {
         <ParticleStarfield />
       </div>
 
-      {/* Infinite Marquee Ticker at Right Side (Hidden on Mobile to Prevent Overlapping Title) */}
-      <div className="hidden lg:flex absolute top-1/2 right-0 w-[600px] h-[600px] md:w-[900px] md:h-[900px] pointer-events-none z-10 translate-x-1/4 -translate-y-1/2 opacity-90 justify-center items-center">
+      {/* Infinite Marquee Ticker Strips running in background (Responsive for Mobile & Desktop) */}
+      <div className="flex absolute top-1/2 right-0 w-[500px] h-[500px] sm:w-[700px] sm:h-[700px] lg:w-[900px] lg:h-[900px] pointer-events-none z-[2] lg:z-10 translate-x-1/4 sm:translate-x-1/4 -translate-y-1/2 opacity-50 sm:opacity-75 lg:opacity-90 justify-center items-center overflow-visible">
         {/* Strip 1: Black BG, White Text */}
-        <div className="absolute top-1/2 left-1/2 w-[200%] -translate-x-1/2 -translate-y-1/2 -rotate-45 bg-black text-white border-y-2 sm:border-y-4 border-black font-black uppercase text-lg md:text-2xl py-2 md:py-3.5 flex shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] pointer-events-auto">
+        <div className="absolute top-1/2 left-1/2 w-[240%] -translate-x-1/2 -translate-y-1/2 -rotate-45 bg-black text-white border-y-2 sm:border-y-4 border-black font-black uppercase text-xs sm:text-lg md:text-2xl py-1.5 sm:py-2.5 md:py-3.5 flex shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] sm:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] pointer-events-none lg:pointer-events-auto">
           <InteractiveMarquee
             text="DATA ANALYTICS ✦ OPEN TO WORK ✦"
             baseSpeed={1.5}
@@ -65,7 +65,7 @@ const Hero = () => {
         </div>
 
         {/* Strip 2: Accent BG, Black Text */}
-        <div className="absolute top-1/2 left-1/2 w-[200%] -translate-x-1/2 -translate-y-1/2 rotate-45 bg-[#B8FF65] text-black border-y-2 sm:border-y-4 border-black font-black uppercase text-lg md:text-2xl py-2 md:py-3.5 flex shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] pointer-events-auto">
+        <div className="absolute top-1/2 left-1/2 w-[240%] -translate-x-1/2 -translate-y-1/2 rotate-45 bg-[#B8FF65] text-black border-y-2 sm:border-y-4 border-black font-black uppercase text-xs sm:text-lg md:text-2xl py-1.5 sm:py-2.5 md:py-3.5 flex shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] sm:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] pointer-events-none lg:pointer-events-auto">
           <InteractiveMarquee
             text="GEN AI BUILDER ✦ PROBLEM SOLVER ✦"
             baseSpeed={1.5}
