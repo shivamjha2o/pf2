@@ -14,11 +14,11 @@ const Hero = () => {
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth < 480) {
-        setFontSize(48);
+        setFontSize(52);
       } else if (window.innerWidth < 768) {
-        setFontSize(64);
+        setFontSize(68);
       } else if (window.innerWidth < 1024) {
-        setFontSize(80);
+        setFontSize(84);
       } else {
         setFontSize(96);
       }
@@ -51,10 +51,10 @@ const Hero = () => {
         <ParticleStarfield />
       </div>
 
-      {/* Infinite Marquee Ticker Strips running in background (Responsive for Mobile & Desktop) */}
-      <div className="flex absolute top-1/2 right-0 w-[500px] h-[500px] sm:w-[700px] sm:h-[700px] lg:w-[900px] lg:h-[900px] pointer-events-none z-[2] lg:z-10 translate-x-1/4 sm:translate-x-1/4 -translate-y-1/2 opacity-50 sm:opacity-75 lg:opacity-90 justify-center items-center overflow-visible">
+      {/* Infinite Marquee Ticker Strips running in background (Bold & Prominent across Mobile & Desktop) */}
+      <div className="flex absolute top-1/2 right-0 w-[550px] h-[550px] sm:w-[750px] sm:h-[750px] lg:w-[950px] lg:h-[950px] pointer-events-none z-[1] lg:z-10 translate-x-1/4 sm:translate-x-1/4 -translate-y-1/2 opacity-90 sm:opacity-95 lg:opacity-100 justify-center items-center overflow-visible">
         {/* Strip 1: Black BG, White Text */}
-        <div className="absolute top-1/2 left-1/2 w-[240%] -translate-x-1/2 -translate-y-1/2 -rotate-45 bg-black text-white border-y-2 sm:border-y-4 border-black font-black uppercase text-xs sm:text-lg md:text-2xl py-1.5 sm:py-2.5 md:py-3.5 flex shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] sm:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] pointer-events-none lg:pointer-events-auto">
+        <div className="absolute top-1/2 left-1/2 w-[280%] -translate-x-1/2 -translate-y-1/2 -rotate-35 sm:-rotate-45 bg-black text-white border-y-3 sm:border-y-4 border-black font-black uppercase text-sm sm:text-lg md:text-2xl py-2.5 sm:py-3.5 flex shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] pointer-events-none lg:pointer-events-auto">
           <InteractiveMarquee
             text="DATA ANALYTICS ✦ OPEN TO WORK ✦"
             baseSpeed={1.5}
@@ -65,7 +65,7 @@ const Hero = () => {
         </div>
 
         {/* Strip 2: Accent BG, Black Text */}
-        <div className="absolute top-1/2 left-1/2 w-[240%] -translate-x-1/2 -translate-y-1/2 rotate-45 bg-[#B8FF65] text-black border-y-2 sm:border-y-4 border-black font-black uppercase text-xs sm:text-lg md:text-2xl py-1.5 sm:py-2.5 md:py-3.5 flex shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] sm:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] pointer-events-none lg:pointer-events-auto">
+        <div className="absolute top-1/2 left-1/2 w-[280%] -translate-x-1/2 -translate-y-1/2 rotate-35 sm:rotate-45 bg-[#B8FF65] text-black border-y-3 sm:border-y-4 border-black font-black uppercase text-sm sm:text-lg md:text-2xl py-2.5 sm:py-3.5 flex shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] pointer-events-none lg:pointer-events-auto">
           <InteractiveMarquee
             text="GEN AI BUILDER ✦ PROBLEM SOLVER ✦"
             baseSpeed={1.5}
@@ -93,35 +93,35 @@ const Hero = () => {
       {/* Main Content Container */}
       <div className="max-w-7xl mx-auto px-4 w-full flex-1 flex flex-col justify-center items-center relative z-10">
         {/* Mobile-only Paper Tape Note */}
-        <div className="lg:hidden mb-4 self-start">
-          <div className="bg-white border-2 border-black px-3 py-2 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] relative inline-block -rotate-2">
-            <p className="font-extrabold text-xs tracking-tight text-black">DU ARSD '27 • New Delhi</p>
+        <div className="lg:hidden mb-3 self-start">
+          <div className="bg-white border-2 border-black px-3.5 py-1.5 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] relative inline-block -rotate-2 rounded-lg">
+            <p className="font-black text-xs tracking-tight text-black">DU ARSD '27 • New Delhi</p>
           </div>
         </div>
 
         {/* ANIMATED STROKE NAME DISPLAY */}
-        <div className="w-full max-w-4xl mb-4 sm:mb-6 z-20 px-2 flex justify-center items-center overflow-hidden">
+        <div className="w-full max-w-4xl mb-3 sm:mb-6 z-20 px-2 flex justify-center items-center overflow-hidden">
           <StrokeText
             text="Shivam Kumar Jha"
             strokeColor="#000000"
             fillColor="#000000"
-            strokeWidth={2.2}
-            drawDuration={1.6}
-            fillDelay={0.2}
-            stagger={0.05}
+            strokeWidth={2.4}
+            drawDuration={1.2}
+            fillDelay={0.1}
+            stagger={0.03}
             ease="power2.out"
-            trigger="loop"
-            fillMode="wipe"
+            trigger="mount"
+            fillMode="fade"
             fontSize={fontSize}
             fontWeight={900}
             letterSpacing={-1}
-            className="font-extrabold tracking-tight text-center"
+            className="font-extrabold tracking-tight text-center drop-shadow-[0_2px_10px_rgba(255,255,255,0.9)]"
           />
         </div>
 
         {/* "I'M A" + TYPEWRITER CYCLING ROLE PILL */}
-        <div className="my-2 flex flex-wrap justify-center items-center gap-3 sm:gap-4 relative z-20 w-full px-2">
-          <span className="text-xl sm:text-3xl md:text-4xl font-black uppercase tracking-tight text-black whitespace-nowrap">
+        <div className="my-2 flex flex-wrap justify-center items-center gap-2.5 sm:gap-4 relative z-20 w-full px-2">
+          <span className="text-xl sm:text-3xl md:text-4xl font-black uppercase tracking-tight text-black whitespace-nowrap drop-shadow-[0_2px_4px_rgba(255,255,255,0.9)]">
             I'm a
           </span>
           <TypewriterText
@@ -133,22 +133,22 @@ const Hero = () => {
         </div>
 
         {/* Mobile-only Animated Role Bullets Display */}
-        <div className="lg:hidden mt-6 w-full max-w-md bg-white/90 border-2 border-black p-4 rounded-xl shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+        <div className="lg:hidden mt-5 w-full max-w-md bg-white/95 border-3 border-black p-4 sm:p-5 rounded-2xl shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] backdrop-blur-md">
           <AnimatedRoleBullets />
         </div>
       </div>
 
       {/* Hero Bottom Buttons */}
-      <div className="flex justify-center gap-4 relative z-20 px-4 mt-6">
+      <div className="flex justify-center gap-3.5 sm:gap-4 relative z-20 px-4 mt-6">
         <a
           href="#projects"
-          className="bg-black hover:bg-gray-800 text-white px-6 py-3 text-xs sm:text-sm rounded-full font-bold transition-all border-2 border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] sm:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] whitespace-nowrap"
+          className="bg-black hover:bg-[#B8FF65] hover:text-black text-white px-5 sm:px-6 py-2.5 sm:py-3 text-xs sm:text-sm rounded-full font-black uppercase tracking-wider transition-all border-2 sm:border-3 border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] sm:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] active:translate-x-0.5 active:translate-y-0.5 whitespace-nowrap"
         >
           View My Projects
         </a>
         <a
           href="#about"
-          className="bg-white hover:bg-gray-100 text-black px-6 py-3 text-xs sm:text-sm rounded-full font-bold transition-all border-2 border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] sm:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px] whitespace-nowrap"
+          className="bg-white hover:bg-gray-100 text-black px-5 sm:px-6 py-2.5 sm:py-3 text-xs sm:text-sm rounded-full font-black uppercase tracking-wider transition-all border-2 sm:border-3 border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] sm:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] active:translate-x-0.5 active:translate-y-0.5 whitespace-nowrap"
         >
           About Me
         </a>
@@ -158,3 +158,4 @@ const Hero = () => {
 };
 
 export default Hero;
+
