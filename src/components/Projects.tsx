@@ -8,7 +8,7 @@ import { AnimatedCounter, StatCard } from '@/components/CounterMetric';
 import ProjectModal, { ProjectDetail } from '@/components/ProjectModal';
 
 const statsData = [
-  { value: 10000, suffix: '+', label: 'Profiles Analyzed', sublabel: 'Risk Prediction' },
+  { value: 50000, suffix: '+', label: 'SQL Records Analyzed', sublabel: 'Retail & Risk Telemetry' },
   { value: 15, suffix: '%', label: 'Accuracy Boost', sublabel: 'GenAI Anomaly Detection' },
   { value: 22, suffix: '%', label: 'Lag Reduction', sublabel: 'Workflow Automation' },
   { value: 20, suffix: '%', label: 'Error Mitigation', sublabel: 'Data Extraction Pipelines' },
@@ -17,6 +17,32 @@ const statsData = [
 const projectsData: ProjectDetail[] = [
   {
     id: 1,
+    title: 'Retail Sales & Customer Analytics Platform',
+    category: 'Data Analytics & Power BI',
+    year: '2025',
+    metricValue: 50000,
+    metricSuffix: '+ Rows',
+    metricLabel: 'SQL Transactions Processed',
+    desc: 'Executed end-to-end exploratory analysis on <span class="highlight-marker">50,000+ multi-category retail transactions</span> using PostgreSQL and Python. Designed an interactive <span class="highlight-marker">Power BI executive dashboard</span> tracking revenue KPIs, churn cohorts, and margin trends.',
+    overview: 'Engineered a comprehensive retail sales business intelligence solution integrating raw SQL transactional extraction, Python EDA pipelines, RFM customer segmentation heuristics, and interactive Power BI drill-through dashboards for cross-departmental executive visibility.',
+    tools: ['SQL (PostgreSQL)', 'Power BI (DAX)', 'Python', 'Pandas', 'Seaborn', 'RFM Segmentation', 'Jupyter Notebook'],
+    workflow: [
+      'Extracted, joined, and aggregated 50,000+ transaction lines across Customer, Product, and Region relational SQL tables.',
+      'Authored complex SQL analytical window functions (RANK, DENSE_RANK, CTEs, LAG) to measure month-over-month sales velocity.',
+      'Conducted deep exploratory data analysis in Python (Pandas/NumPy) detecting seasonal outlier spikes and pricing elasticities.',
+      'Designed a multi-page Power BI dashboard utilizing DAX measures, dynamic slicers, and customer RFM cohort drill-downs.'
+    ],
+    impact: [
+      'Identified top 15% revenue-driving customer tiers generating 62% of gross profit margin.',
+      'Reduced manual monthly reporting compile time by 85% via automated DAX data models.',
+      'Uncovered inventory overstock bottlenecks in underperforming regional hubs.'
+    ],
+    githubUrl: 'https://github.com/shivamjha2o/Retail-Sales-Customer-Analytics',
+    demoUrl: 'https://github.com/shivamjha2o/Retail-Sales-Customer-Analytics',
+    tags: ['SQL', 'Power BI', 'EDA', 'DAX', 'Python', 'Customer Analytics']
+  },
+  {
+    id: 2,
     title: 'Customer Delinquency Risk Predictor',
     category: 'GenAI & Predictive ML',
     year: '2025',
@@ -42,7 +68,33 @@ const projectsData: ProjectDetail[] = [
     tags: ['Python', 'SQL', 'GenAI', 'Predictive Scoring', 'Streamlit', 'EDA']
   },
   {
-    id: 2,
+    id: 3,
+    title: 'Supply Chain & Logistics Telemetry Engine',
+    category: 'EDA & Streamlit Analytics',
+    year: '2025',
+    metricValue: 18,
+    metricSuffix: '% Saved',
+    metricLabel: 'Logistics Cost Optimized',
+    desc: 'Constructed an automated exploratory analytics pipeline using Python and SQL to audit inventory turnover and freight routes across 12 distribution centers. Deployed an interactive <span class="highlight-marker">Streamlit analytics app</span> securing <span class="highlight-marker">18% freight cost savings</span>.',
+    overview: 'Developed an end-to-end supply chain exploratory data analytics system analyzing historical procurement velocity, lead-time variance, and vendor delivery reliability using SQL queries, Pandas telemetry modeling, and a deployed Streamlit dashboard.',
+    tools: ['Python', 'SQL (MySQL)', 'Streamlit', 'Pandas', 'Plotly Express', 'EDA Pipelines', 'OpenPyXL'],
+    workflow: [
+      'Queried and merged supply chain warehousing datasets with structured SQL queries auditing 10,000+ shipment tracking records.',
+      'Performed rigorous data cleansing, outlier imputation, and lead-time correlation analysis using Pandas & Seaborn.',
+      'Modeled dynamic Economic Order Quantity (EOQ) and safety stock thresholds to mitigate stockouts and excess holding costs.',
+      'Built and deployed an interactive Streamlit web dashboard with Plotly geographic freight heatmaps and filterable vendor scorecards.'
+    ],
+    impact: [
+      'Simulated an 18% reduction in logistics expediting costs through optimized reorder triggers.',
+      'Mitigated vendor delivery variance bottlenecks across 12 regional distribution hubs.',
+      'Automated end-of-week logistics summary spreadsheets into real-time interactive charts.'
+    ],
+    githubUrl: 'https://github.com/shivamjha2o/Supply-Chain-Logistics-Analytics',
+    demoUrl: 'https://github.com/shivamjha2o/Supply-Chain-Logistics-Analytics',
+    tags: ['SQL', 'Python', 'Streamlit', 'EDA', 'Supply Chain', 'Plotly']
+  },
+  {
+    id: 4,
     title: 'AI-Driven Collections Strategy',
     category: 'Agentic AI & Automation',
     year: '2025',
@@ -66,7 +118,7 @@ const projectsData: ProjectDetail[] = [
     tags: ['Agentic AI', 'Automation', 'Python', 'SQL Telemetry', 'Workflow Optimization']
   },
   {
-    id: 3,
+    id: 5,
     title: 'IAM Security Framework',
     category: 'Cybersecurity Simulation',
     year: '2025',
