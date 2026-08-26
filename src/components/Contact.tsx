@@ -151,24 +151,14 @@ const Contact = () => {
             className="w-full rounded-2xl"
           >
             <div className="bg-white p-5 sm:p-10 rounded-2xl border-3 sm:border-4 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] sm:shadow-[10px_10px_0px_0px_rgba(0,0,0,1)]">
-              {/* Form Title & Direct Mail Option */}
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-6 pb-4 border-b-2 border-black">
-                <div>
-                  <h3 className="text-xl sm:text-2xl font-black text-black tracking-tight uppercase">
-                    Send a Direct Message
-                  </h3>
-                  <p className="text-xs sm:text-sm font-medium text-gray-600 mt-0.5">
-                    Leave your contact details and message below.
-                  </p>
-                </div>
-                <a
-                  href="mailto:shivamjha9871@gmail.com?subject=Direct%20Inquiry%20from%20Portfolio"
-                  className="inline-flex items-center gap-1.5 bg-[#B8FF65] hover:bg-black hover:text-[#B8FF65] text-black font-black text-xs uppercase tracking-wider px-3.5 py-2 border-2 border-black rounded-lg shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-colors shrink-0 self-start sm:self-auto active:translate-x-0.5 active:translate-y-0.5"
-                >
-                  <span>✉️</span>
-                  <span>Direct Mailto</span>
-                  <span>↗</span>
-                </a>
+              {/* Form Title */}
+              <div className="mb-6 pb-4 border-b-2 border-black">
+                <h3 className="text-xl sm:text-2xl font-black text-black tracking-tight uppercase">
+                  Send a Direct Message
+                </h3>
+                <p className="text-xs sm:text-sm font-medium text-gray-600 mt-0.5">
+                  Leave your contact details and message below.
+                </p>
               </div>
 
               <AnimatePresence mode="wait">
