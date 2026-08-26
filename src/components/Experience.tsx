@@ -4,12 +4,13 @@ import React from 'react';
 import { motion } from 'motion/react';
 import SpotlightCard from '@/components/SpotlightCard';
 
-const experienceData = [
+const corporateExperience = [
   {
     id: 1,
     role: 'Data Analyst Intern',
     company: 'JK Paper Ltd. (Head Office)',
     location: 'New Delhi, India',
+    type: 'Live On-Site Corporate Internship',
     period: 'June 2026 - Present',
     techStack: ['Python', 'Pandas', 'NumPy', 'SQL', 'Power BI', 'OpenPyXL', 'Advanced MS Excel', 'ETL Pipelines'],
     impactHighlight: '20% Error Mitigation & Automated Reporting',
@@ -19,12 +20,16 @@ const experienceData = [
       'Query relational enterprise databases using structured <span class="highlight-marker">SQL pipelines</span> to extract key metrics across procurement, inventory aging, and supply chain telemetry.',
       'Collaborate directly with executive stakeholders to analyze workflow bottlenecks and interpret data trends, formulating actionable structural recommendations for operational optimizations.'
     ]
-  },
+  }
+];
+
+const virtualSimulations = [
   {
     id: 2,
     role: 'Data Analytics Virtual Intern',
     company: 'Tata iQ (via Forage)',
     location: 'Remote Simulation',
+    type: 'Enterprise Case Simulation',
     period: '2025',
     techStack: ['GenAI Heuristics', 'Python', 'Predictive Modeling', 'Tableau', 'Risk Frameworks'],
     impactHighlight: 'Executive Risk & Data Visualization Simulation',
@@ -39,6 +44,7 @@ const experienceData = [
     role: 'Cybersecurity Analyst Virtual Intern',
     company: 'Tata Consultancy Services (via Forage)',
     location: 'Remote Simulation',
+    type: 'Enterprise Case Simulation',
     period: '2025',
     techStack: ['IAM Governance', 'RBAC Matrix', 'Zero Trust Architecture', 'Security Compliance'],
     impactHighlight: 'Enterprise Access Control & Policy Matrix',
@@ -60,80 +66,180 @@ const Experience = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
           transition={{ duration: 0.6, ease: "easeOut" }}
-          className="text-center mb-10 sm:mb-16"
+          className="text-center mb-12 sm:mb-16"
         >
           <h2 className="text-2xl sm:text-4xl font-black mb-4 uppercase tracking-tight bg-white text-black inline-block px-5 py-2 border-3 sm:border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-            Experience & Internships
+            Experience & Simulations
           </h2>
+          <p className="text-xs sm:text-sm font-bold uppercase tracking-wider text-gray-600 max-w-md mx-auto">
+            Live Corporate Industry Internships & Enterprise Simulations
+          </p>
         </motion.div>
 
-        <div className="space-y-6 sm:space-y-8">
-          {experienceData.map((exp, index) => (
-            <motion.div
-              key={exp.id}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.6, delay: index * 0.15, ease: "easeOut" }}
-              className="relative"
-            >
-              <SpotlightCard
-                enableTilt={true}
-                maxTilt={5}
-                spotlightColor="rgba(184, 255, 101, 0.3)"
-                className="rounded-xl sm:rounded-2xl"
+        {/* 1. Corporate / Live Industry Experience */}
+        <div className="mb-12 sm:mb-16">
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-40px" }}
+            transition={{ duration: 0.5 }}
+            className="flex items-center gap-2 mb-6"
+          >
+            <span className="text-xs sm:text-sm font-black uppercase tracking-wider bg-black text-[#B8FF65] px-3.5 py-1.5 rounded-lg border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] flex items-center gap-1.5">
+              <span>🏢</span> Live Corporate Industry Experience
+            </span>
+          </motion.div>
+
+          <div className="space-y-6">
+            {corporateExperience.map((exp, index) => (
+              <motion.div
+                key={exp.id}
+                initial={{ opacity: 0, y: 25 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.6, delay: index * 0.15, ease: "easeOut" }}
+                className="relative"
               >
-                <div className="bg-white p-5 sm:p-8 rounded-xl sm:rounded-2xl border-3 sm:border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] sm:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
-                  {/* Header Row */}
-                  <div className="sm:flex items-start justify-between mb-4 border-b-2 border-black pb-4 gap-4">
-                    <div>
-                      <div className="flex flex-wrap items-center gap-2 mb-1">
-                        <h3 className="text-xl sm:text-2xl font-black text-black tracking-tight">{exp.role}</h3>
-                        {exp.impactHighlight && (
-                          <span className="bg-black text-[#B8FF65] border border-black text-[10.5px] font-black uppercase px-2.5 py-0.5 rounded shadow-[1.5px_1.5px_0px_0px_rgba(0,0,0,1)]">
-                            ★ {exp.impactHighlight}
+                <SpotlightCard
+                  enableTilt={true}
+                  maxTilt={5}
+                  spotlightColor="rgba(184, 255, 101, 0.3)"
+                  className="rounded-xl sm:rounded-2xl"
+                >
+                  <div className="bg-white p-5 sm:p-8 rounded-xl sm:rounded-2xl border-3 sm:border-4 border-black shadow-[5px_5px_0px_0px_rgba(0,0,0,1)] sm:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+                    {/* Header Row */}
+                    <div className="sm:flex items-start justify-between mb-4 border-b-2 border-black pb-4 gap-4">
+                      <div>
+                        <div className="flex flex-wrap items-center gap-2 mb-1.5">
+                          <h3 className="text-xl sm:text-2xl font-black text-black tracking-tight">{exp.role}</h3>
+                          <span className="bg-[#B8FF65] text-black border border-black text-[10.5px] font-black uppercase px-2.5 py-0.5 rounded shadow-[1.5px_1.5px_0px_0px_rgba(0,0,0,1)]">
+                            {exp.type}
                           </span>
-                        )}
+                          {exp.impactHighlight && (
+                            <span className="bg-black text-[#B8FF65] border border-black text-[10.5px] font-black uppercase px-2.5 py-0.5 rounded shadow-[1.5px_1.5px_0px_0px_rgba(0,0,0,1)]">
+                              ★ {exp.impactHighlight}
+                            </span>
+                          )}
+                        </div>
+                        <h4 className="text-sm sm:text-base text-gray-900 font-extrabold mt-0.5">
+                          {exp.company} • <span className="text-gray-600 font-medium">{exp.location}</span>
+                        </h4>
                       </div>
-                      <h4 className="text-sm sm:text-base text-gray-900 font-extrabold mt-0.5">
-                        {exp.company} • <span className="text-gray-600 font-medium">{exp.location}</span>
-                      </h4>
-                    </div>
-                    <span className="mt-2 sm:mt-0 font-mono text-xs sm:text-sm bg-[#B8FF65] text-black border-2 border-black inline-block px-3.5 py-1 rounded-full font-bold shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] shrink-0 self-start">
-                      {exp.period}
-                    </span>
-                  </div>
-
-                  {/* Bullet Points */}
-                  <ul className="space-y-2.5 list-disc list-inside text-xs sm:text-sm font-medium text-gray-800 mb-5">
-                    {exp.bullets.map((b, i) => (
-                      <li key={i} className="leading-relaxed" dangerouslySetInnerHTML={{ __html: b }}></li>
-                    ))}
-                  </ul>
-
-                  {/* Dedicated Tech Stack Sub-Badge Bar */}
-                  <div className="pt-3.5 border-t border-gray-200 flex flex-wrap items-center gap-1.5 sm:gap-2">
-                    <span className="text-[10px] sm:text-xs font-black uppercase tracking-wider text-gray-500 mr-1 flex items-center gap-1">
-                      <span>🛠️</span> Tech Stack:
-                    </span>
-                    {exp.techStack.map((tech) => (
-                      <span
-                        key={tech}
-                        className="bg-[#B8FF65]/20 hover:bg-[#B8FF65] text-black font-extrabold text-[10.5px] sm:text-xs px-2.5 py-0.5 border border-black rounded-md shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] transition-colors cursor-default"
-                      >
-                        {tech}
+                      <span className="mt-2 sm:mt-0 font-mono text-xs sm:text-sm bg-[#B8FF65] text-black border-2 border-black inline-block px-3.5 py-1 rounded-full font-bold shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] shrink-0 self-start">
+                        {exp.period}
                       </span>
-                    ))}
+                    </div>
+
+                    {/* Bullet Points */}
+                    <ul className="space-y-2.5 list-disc list-inside text-xs sm:text-sm font-medium text-gray-800 mb-5">
+                      {exp.bullets.map((b, i) => (
+                        <li key={i} className="leading-relaxed" dangerouslySetInnerHTML={{ __html: b }}></li>
+                      ))}
+                    </ul>
+
+                    {/* Dedicated Tech Stack Sub-Badge Bar */}
+                    <div className="pt-3.5 border-t border-gray-200 flex flex-wrap items-center gap-1.5 sm:gap-2">
+                      <span className="text-[10px] sm:text-xs font-black uppercase tracking-wider text-gray-500 mr-1 flex items-center gap-1">
+                        <span>🛠️</span> Tech Stack:
+                      </span>
+                      {exp.techStack.map((tech) => (
+                        <span
+                          key={tech}
+                          className="bg-[#B8FF65]/20 hover:bg-[#B8FF65] text-black font-extrabold text-[10.5px] sm:text-xs px-2.5 py-0.5 border border-black rounded-md shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] transition-colors cursor-default"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
                   </div>
-                </div>
-              </SpotlightCard>
-            </motion.div>
-          ))}
+                </SpotlightCard>
+              </motion.div>
+            ))}
+          </div>
         </div>
+
+        {/* 2. Virtual Job Simulations (Forage) */}
+        <div>
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-40px" }}
+            transition={{ duration: 0.5 }}
+            className="flex items-center gap-2 mb-6"
+          >
+            <span className="text-xs sm:text-sm font-black uppercase tracking-wider bg-white text-black px-3.5 py-1.5 rounded-lg border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] flex items-center gap-1.5">
+              <span>💼</span> Virtual Job Simulations (Forage Enterprise)
+            </span>
+          </motion.div>
+
+          <div className="space-y-6">
+            {virtualSimulations.map((exp, index) => (
+              <motion.div
+                key={exp.id}
+                initial={{ opacity: 0, y: 25 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.6, delay: index * 0.15, ease: "easeOut" }}
+                className="relative"
+              >
+                <SpotlightCard
+                  enableTilt={true}
+                  maxTilt={5}
+                  spotlightColor="rgba(184, 255, 101, 0.3)"
+                  className="rounded-xl sm:rounded-2xl"
+                >
+                  <div className="bg-white p-5 sm:p-7 rounded-xl sm:rounded-2xl border-2 sm:border-3 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] sm:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]">
+                    {/* Header Row */}
+                    <div className="sm:flex items-start justify-between mb-3.5 border-b border-gray-200 pb-3.5 gap-4">
+                      <div>
+                        <div className="flex flex-wrap items-center gap-2 mb-1">
+                          <h3 className="text-lg sm:text-xl font-bold text-black tracking-tight">{exp.role}</h3>
+                          <span className="bg-gray-100 text-gray-800 border border-black text-[10px] font-bold uppercase px-2 py-0.5 rounded">
+                            {exp.type}
+                          </span>
+                        </div>
+                        <h4 className="text-xs sm:text-sm text-gray-800 font-bold mt-0.5">
+                          {exp.company} • <span className="text-gray-600 font-normal">{exp.location}</span>
+                        </h4>
+                      </div>
+                      <span className="mt-2 sm:mt-0 font-mono text-xs sm:text-sm bg-[#B8FF65] text-black border-2 border-black inline-block px-3 py-0.5 rounded-full font-bold shadow-[1.5px_1.5px_0px_0px_rgba(0,0,0,1)] shrink-0 self-start">
+                        {exp.period}
+                      </span>
+                    </div>
+
+                    {/* Bullet Points */}
+                    <ul className="space-y-2 list-disc list-inside text-xs sm:text-sm font-medium text-gray-700 mb-4">
+                      {exp.bullets.map((b, i) => (
+                        <li key={i} className="leading-relaxed" dangerouslySetInnerHTML={{ __html: b }}></li>
+                      ))}
+                    </ul>
+
+                    {/* Tech Stack Sub-Badge Bar */}
+                    <div className="pt-3 border-t border-gray-100 flex flex-wrap items-center gap-1.5">
+                      <span className="text-[10px] font-bold uppercase tracking-wider text-gray-400 mr-1 flex items-center gap-1">
+                        <span>🛠️</span> Stack:
+                      </span>
+                      {exp.techStack.map((tech) => (
+                        <span
+                          key={tech}
+                          className="bg-gray-100 text-black font-bold text-[10px] sm:text-[11px] px-2 py-0.5 border border-gray-400 rounded transition-colors cursor-default"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </SpotlightCard>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+
       </div>
     </section>
   );
 };
 
 export default Experience;
+
 
