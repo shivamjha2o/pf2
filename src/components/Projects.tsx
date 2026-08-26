@@ -43,7 +43,7 @@ const projectsData: ProjectDetail[] = [
   {
     id: 2,
     title: 'AI-Driven Collections Strategy',
-    category: 'Agentic AI & Automation Workflows',
+    category: 'Agentic AI & Automation',
     year: '2025',
     metricValue: 22,
     metricSuffix: '%',
@@ -67,7 +67,7 @@ const projectsData: ProjectDetail[] = [
   {
     id: 3,
     title: 'IAM Security Framework',
-    category: 'Cybersecurity Enterprise Simulation',
+    category: 'Cybersecurity Simulation',
     year: '2025',
     metricValue: 3,
     metricSuffix: ' Domains',
@@ -104,7 +104,7 @@ const Projects = () => {
   };
 
   return (
-    <section id="projects" className="pt-16 pb-28 sm:pt-24 sm:pb-36 bg-transparent text-black relative">
+    <section id="projects" className="pt-14 pb-20 sm:pt-24 sm:pb-32 bg-transparent text-black relative">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
@@ -126,7 +126,7 @@ const Projects = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-40px" }}
           transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
-          className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 mb-12 sm:mb-16"
+          className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 mb-10 sm:mb-14"
         >
           {statsData.map((stat, i) => (
             <StatCard
@@ -145,34 +145,25 @@ const Projects = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
           transition={{ duration: 0.6, delay: 0.15, ease: "easeOut" }}
-          className="w-full mb-6 sm:mb-10"
+          className="w-full"
         >
-          <ScrollStack
-            useWindowScroll={true}
-            itemDistance={60}
-            itemScale={0.04}
-            itemStackDistance={25}
-            stackPosition="20%"
-            scaleEndPosition="12%"
-            baseScale={0.9}
-            blurAmount={0}
-          >
-            {projectsData.map((project) => (
-              <ScrollStackItem key={project.id} itemClassName="!my-6">
+          <ScrollStack>
+            {projectsData.map((project, index) => (
+              <ScrollStackItem key={project.id} index={index}>
                 <SpotlightCard
                   enableTilt={true}
-                  maxTilt={7}
-                  spotlightColor="rgba(184, 255, 101, 0.35)"
+                  maxTilt={6}
+                  spotlightColor="rgba(184, 255, 101, 0.3)"
                   className="w-full h-full"
                 >
-                  {/* Uniform Height Flex Layout */}
-                  <div className="flex flex-col justify-between h-full min-h-[360px] sm:min-h-[330px]">
+                  {/* Uniform Height Flex Layout with Responsive Breathing Room */}
+                  <div className="flex flex-col justify-between h-full min-h-[320px] sm:min-h-[300px]">
                     {/* Top Meta Bar with Category, Year & Direct GitHub Repo Badge */}
-                    <div className="flex justify-between items-center gap-2 mb-4 pb-3 border-b-2 border-black">
-                      <span className="text-xs sm:text-sm font-black uppercase tracking-wider text-black bg-[#B8FF65] px-3.5 py-1.5 border-2 border-black rounded-lg shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+                    <div className="flex justify-between items-center gap-2 mb-3 sm:mb-4 pb-3 border-b-2 border-black">
+                      <span className="text-[11px] sm:text-xs md:text-sm font-black uppercase tracking-wider text-black bg-[#B8FF65] px-2.5 sm:px-3.5 py-1 sm:py-1.5 border-2 border-black rounded-lg shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] truncate max-w-[62%] sm:max-w-none">
                         {project.category}
                       </span>
-                      <div className="flex items-center gap-2">
+                      <div className="flex items-center gap-2 shrink-0">
                         <a
                           href={project.githubUrl || "https://github.com/shivamjha2o"}
                           target="_blank"
@@ -183,45 +174,47 @@ const Projects = () => {
                           <span>Code</span>
                           <span className="text-[10px] group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform">↗</span>
                         </a>
-                        <span className="font-mono text-xs sm:text-sm font-bold bg-black text-white px-3 py-1 rounded-full shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+                        <span className="font-mono text-xs sm:text-sm font-bold bg-black text-white px-2.5 sm:px-3 py-1 rounded-full shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
                           {project.year}
                         </span>
                       </div>
                     </div>
 
                     {/* Title & Metric & Description with Vertical Balance */}
-                    <div className="my-auto py-2">
-                      <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2 mb-2">
-                        <h3 className="text-xl sm:text-3xl font-black tracking-tight">{project.title}</h3>
-                        <div className="bg-black text-[#B8FF65] border-2 border-black px-3 py-1 rounded-lg shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] self-start sm:self-auto shrink-0 flex items-center gap-1.5">
-                          <span className="text-[10px] font-bold uppercase text-gray-400">Impact</span>
+                    <div className="my-auto py-1 sm:py-2">
+                      <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2 mb-2 sm:mb-2.5">
+                        <h3 className="text-lg sm:text-2xl md:text-3xl font-black tracking-tight leading-snug text-black">
+                          {project.title}
+                        </h3>
+                        <div className="bg-black text-[#B8FF65] border-2 border-black px-2.5 sm:px-3 py-1 rounded-lg shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] self-start sm:self-auto shrink-0 flex items-center gap-1.5">
+                          <span className="text-[10px] font-black uppercase text-gray-400">Impact</span>
                           <AnimatedCounter value={project.metricValue} suffix={project.metricSuffix} className="text-xs sm:text-sm" />
                         </div>
                       </div>
-                      <p className="text-gray-800 text-sm sm:text-base font-medium leading-relaxed" dangerouslySetInnerHTML={{ __html: project.desc }}></p>
+                      <p className="text-gray-800 text-[13.5px] sm:text-base font-medium leading-relaxed" dangerouslySetInnerHTML={{ __html: project.desc }}></p>
                     </div>
 
                     {/* Divider Line with Generous Spacing */}
-                    <div className="w-full h-[1.5px] bg-black/15 mt-6 mb-5" />
+                    <div className="w-full h-[1.5px] bg-black/15 my-3.5 sm:my-5" />
 
                     {/* Bottom Tags & Case Study CTA */}
-                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-2 sm:pb-3">
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3.5 sm:gap-4">
                       {/* High-Contrast Enhanced Tag Pills */}
-                      <div className="flex flex-wrap items-center gap-x-2.5 gap-y-3">
+                      <div className="flex flex-wrap items-center gap-1.5 sm:gap-2.5">
                         {project.tags.map(tag => (
                           <span
                             key={tag}
-                            className="bg-[#B8FF65]/20 hover:bg-[#B8FF65] text-black font-extrabold text-[11px] sm:text-xs px-3.5 py-1.5 border border-black rounded-full uppercase tracking-wider transition-all duration-200 shadow-[1.5px_1.5px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-0.5 cursor-default leading-none"
+                            className="bg-[#B8FF65]/20 hover:bg-[#B8FF65] text-black font-extrabold text-[10.5px] sm:text-xs px-3 py-1 sm:py-1.5 border border-black rounded-full uppercase tracking-wider transition-all duration-200 shadow-[1.5px_1.5px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-0.5 cursor-default leading-none"
                           >
                             {tag}
                           </span>
                         ))}
                       </div>
 
-                      {/* View Details Button with External Link Indicator */}
+                      {/* View Details Button */}
                       <button
                         onClick={() => handleOpenDetails(project)}
-                        className="bg-black hover:bg-[#B8FF65] text-white hover:text-black font-black text-xs sm:text-sm uppercase tracking-wider px-5 py-2.5 rounded-xl border-2 border-black transition-colors shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] active:translate-x-0.5 active:translate-y-0.5 self-start sm:self-auto shrink-0 flex items-center gap-1.5 group cursor-pointer"
+                        className="w-full sm:w-auto justify-center bg-black hover:bg-[#B8FF65] text-white hover:text-black font-black text-xs sm:text-sm uppercase tracking-wider px-5 py-2.5 sm:py-3 rounded-xl border-2 border-black transition-all shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] active:translate-x-0.5 active:translate-y-0.5 shrink-0 flex items-center gap-1.5 group cursor-pointer"
                       >
                         <span>View Details</span>
                         <span className="group-hover:translate-x-1 transition-transform">↗</span>
@@ -247,3 +240,4 @@ const Projects = () => {
 };
 
 export default Projects;
+
