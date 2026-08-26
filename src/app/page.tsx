@@ -7,6 +7,7 @@ import Projects from '@/components/Projects';
 import Experience from '@/components/Experience';
 import Skills from '@/components/Skills';
 import Contact from '@/components/Contact';
+import CtaBanner from '@/components/CtaBanner';
 import Footer from '@/components/Footer';
 import PillNav from '@/components/PillNav';
 
@@ -68,8 +69,10 @@ export default function Home() {
         <Experience />
         <Skills />
         <Contact />
+        <CtaBanner />
         <Footer />
       </div>
     </main>
   );
 }
+
